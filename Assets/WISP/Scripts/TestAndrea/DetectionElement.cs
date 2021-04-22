@@ -27,7 +27,7 @@ public class DetectionElement : MonoBehaviour
     [SerializeField]
     private float m_MinRange = 0f; // min range
     [SerializeField]
-    private float m_MaxRange = 7.5f; // max range
+    private float m_MaxRange = 20; // max range
 
 
     [SerializeField]
@@ -104,16 +104,18 @@ public class DetectionElement : MonoBehaviour
     {
         
         // Retourne tout les GPE présent dans la zone de détection
-        Collider2D[] l_InteractibleDetecte = Physics2D.OverlapCircleAll(transform.position, m_DetectionRange, m_LayerToDetect);
+        Collider[] l_InteractibleDetecte = Physics.OverlapSphere(transform.position, m_DetectionRange, m_LayerToDetect);
 
         // On vérifie si le tableau n'est pas vide
         if (l_InteractibleDetecte.Length > 0)
         {
+            Debug.Log("y a tablo");
             // Pour chaque élément (collider2D) dans ce tableau
-            foreach (Collider2D item in l_InteractibleDetecte)
+            foreach (Collider item in l_InteractibleDetecte)
             {
                 // On envoie un linecast dans sa direction
-                RaycastHit2D l_TestCollision = Physics2D.Linecast(transform.position, item.transform.position, m_Ground);
+                RaycastHit l_TestCollision;
+                Physics.Linecast(transform.position, item.transform.position, out l_TestCollision, m_Ground);
 
                 // Si l'objet touché par le linecast est le même que celui détecté à l'origine,
                 // ça veut dire que la vision n'est pas occulté par un élément
@@ -159,7 +161,7 @@ public class DetectionElement : MonoBehaviour
 
                 // le flash est activé
            
-                    yield return m_FlashActivated = true;
+                 yield return m_FlashActivated = true;
                 
             }
         }
