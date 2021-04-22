@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class DetectionElement : MonoBehaviour
 {
@@ -16,7 +16,7 @@ public class DetectionElement : MonoBehaviour
     [SerializeField]
     private GameObject m_FlashLight;
 
-    private Light2D l_FlashParam;
+    private Light l_FlashParam;
 
     private bool m_FlashActivated = false;
     [SerializeField]
@@ -25,14 +25,11 @@ public class DetectionElement : MonoBehaviour
     private float m_TimeToFlashOff= 10;
 
     [SerializeField]
-    private float m_MinInnerRadius = 0f; // min range
+    private float m_MinRange = 0f; // min range
     [SerializeField]
-    private float m_MaxInnerRadius = 7.5f; // max range
+    private float m_MaxRange = 7.5f; // max range
 
-    [SerializeField]
-    private float m_MinOuterRadius = 0f;
-    [SerializeField]
-    private float m_MaxOuterRadius = 15f;
+
     [SerializeField]
     private float m_Counter = 0f;
 
@@ -46,7 +43,7 @@ public class DetectionElement : MonoBehaviour
     {
         //j'assigne le component light2d de ma light à une variable l_FlashParam
 
-        l_FlashParam = m_FlashLight.GetComponent<Light2D>();
+        l_FlashParam = m_FlashLight.GetComponent<Light>();
     }
 
     void Update()
@@ -137,7 +134,7 @@ public class DetectionElement : MonoBehaviour
 
         yield return null;
     }
-    IEnumerator FlashingIn(Light2D lightToFade)
+    IEnumerator FlashingIn(Light lightToFade)
     {
         
         // le flash n'est pas activé
@@ -157,8 +154,8 @@ public class DetectionElement : MonoBehaviour
 
                 // On effectue un lerp entre valeur min et max des inner et outer range de la light
 
-                lightToFade.pointLightInnerRadius = Mathf.Lerp(m_MinInnerRadius, m_MaxInnerRadius, m_Time);
-                lightToFade.pointLightOuterRadius = Mathf.Lerp(m_MinOuterRadius, m_MaxOuterRadius, m_Time);
+                lightToFade.range = Mathf.Lerp(m_MinRange, m_MaxRange, m_Time);
+               
 
                 // le flash est activé
            
@@ -168,7 +165,7 @@ public class DetectionElement : MonoBehaviour
         }
     }
 
-    IEnumerator FlashingOut(Light2D lightToFade)
+    IEnumerator FlashingOut(Light lightToFade)
     {
         
         // si le flash n'est pas activé
@@ -188,8 +185,9 @@ public class DetectionElement : MonoBehaviour
 
                 // On effectue un lerp entre valeur max et min des inner et outer range de la light
 
-                lightToFade.pointLightInnerRadius = Mathf.Lerp(m_MaxInnerRadius, m_MinInnerRadius,m_Time);
-                lightToFade.pointLightOuterRadius = Mathf.Lerp(m_MaxOuterRadius, m_MinOuterRadius,m_Time);
+
+                lightToFade.range = Mathf.Lerp( m_MaxRange, m_MinRange, m_Time);
+
 
                 // Le flash est désactivé
                 yield return m_FlashActivated = false;
