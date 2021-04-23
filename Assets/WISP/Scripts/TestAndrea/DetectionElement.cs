@@ -27,7 +27,7 @@ public class DetectionElement : MonoBehaviour
     [SerializeField]
     private float m_MinRange = 0f; // min range
     [SerializeField]
-    private float m_MaxRange = 20; // max range
+    private float m_MaxRange = 40; // max range
 
 
     [SerializeField]
