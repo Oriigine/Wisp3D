@@ -21,5 +21,7 @@ public class CameraSmooth : MonoBehaviour
         Vector3 l_SmoothPos = Vector3.Lerp(transform.position, l_TargetPos, m_SmoothSpeed);
 
         transform.position = l_SmoothPos;
+
+        //transform.LookAt(target);
     }
 }
