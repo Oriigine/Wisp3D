@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class DetectionElement : MonoBehaviour
 {
@@ -16,7 +16,7 @@ public class DetectionElement : MonoBehaviour
     [SerializeField]
     private GameObject m_FlashLight;
 
-    private Light2D l_FlashParam;
+    private Light l_FlashParam;
 
     private bool m_FlashActivated = false;
     [SerializeField]
@@ -25,14 +25,11 @@ public class DetectionElement : MonoBehaviour
     private float m_TimeToFlashOff= 10;
 
     [SerializeField]
-    private float m_MinInnerRadius = 0f; // min range
+    private float m_MinRange = 0f; // min range
     [SerializeField]
-    private float m_MaxInnerRadius = 7.5f; // max range
+    private float m_MaxRange = 40; // max range
 
-    [SerializeField]
-    private float m_MinOuterRadius = 0f;
-    [SerializeField]
-    private float m_MaxOuterRadius = 15f;
+
     [SerializeField]
     private float m_Counter = 0f;
 
@@ -46,7 +43,7 @@ public class DetectionElement : MonoBehaviour
     {
         //j'assigne le component light2d de ma light à une variable l_FlashParam
 
-        l_FlashParam = m_FlashLight.GetComponent<Light2D>();
+        l_FlashParam = m_FlashLight.GetComponent<Light>();
     }
 
     void Update()
@@ -107,16 +104,18 @@ public class DetectionElement : MonoBehaviour
     {
         
         // Retourne tout les GPE présent dans la zone de détection
-        Collider2D[] l_InteractibleDetecte = Physics2D.OverlapCircleAll(transform.position, m_DetectionRange, m_LayerToDetect);
+        Collider[] l_InteractibleDetecte = Physics.OverlapSphere(transform.position, m_DetectionRange, m_LayerToDetect);
 
         // On vérifie si le tableau n'est pas vide
         if (l_InteractibleDetecte.Length > 0)
         {
+            Debug.Log("y a tablo");
             // Pour chaque élément (collider2D) dans ce tableau
-            foreach (Collider2D item in l_InteractibleDetecte)
+            foreach (Collider item in l_InteractibleDetecte)
             {
                 // On envoie un linecast dans sa direction
-                RaycastHit2D l_TestCollision = Physics2D.Linecast(transform.position, item.transform.position, m_Ground);
+                RaycastHit l_TestCollision;
+                Physics.Linecast(transform.position, item.transform.position, out l_TestCollision, m_Ground);
 
                 // Si l'objet touché par le linecast est le même que celui détecté à l'origine,
                 // ça veut dire que la vision n'est pas occulté par un élément
@@ -137,7 +136,7 @@ public class DetectionElement : MonoBehaviour
 
         yield return null;
     }
-    IEnumerator FlashingIn(Light2D lightToFade)
+    IEnumerator FlashingIn(Light lightToFade)
     {
         
         // le flash n'est pas activé
@@ -157,18 +156,18 @@ public class DetectionElement : MonoBehaviour
 
                 // On effectue un lerp entre valeur min et max des inner et outer range de la light
 
-                lightToFade.pointLightInnerRadius = Mathf.Lerp(m_MinInnerRadius, m_MaxInnerRadius, m_Time);
-                lightToFade.pointLightOuterRadius = Mathf.Lerp(m_MinOuterRadius, m_MaxOuterRadius, m_Time);
+                lightToFade.range = Mathf.Lerp(m_MinRange, m_MaxRange, m_Time);
+               
 
                 // le flash est activé
            
-                    yield return m_FlashActivated = true;
+                 yield return m_FlashActivated = true;
                 
             }
         }
     }
 
-    IEnumerator FlashingOut(Light2D lightToFade)
+    IEnumerator FlashingOut(Light lightToFade)
     {
         
         // si le flash n'est pas activé
@@ -188,8 +187,9 @@ public class DetectionElement : MonoBehaviour
 
                 // On effectue un lerp entre valeur max et min des inner et outer range de la light
 
-                lightToFade.pointLightInnerRadius = Mathf.Lerp(m_MaxInnerRadius, m_MinInnerRadius,m_Time);
-                lightToFade.pointLightOuterRadius = Mathf.Lerp(m_MaxOuterRadius, m_MinOuterRadius,m_Time);
+
+                lightToFade.range = Mathf.Lerp( m_MaxRange, m_MinRange, m_Time);
+
 
                 // Le flash est désactivé
                 yield return m_FlashActivated = false;
