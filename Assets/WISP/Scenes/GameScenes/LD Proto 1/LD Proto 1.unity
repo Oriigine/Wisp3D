@@ -1497,7 +1497,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8647527709219482097, guid: 5acb5d01afc29b1419258630c084f1df, type: 3}
       propertyPath: m_Name
-      value: LightDetector (1)
+      value: LightDetector
       objectReference: {fileID: 0}
     - target: {fileID: 8647527709219482111, guid: 5acb5d01afc29b1419258630c084f1df, type: 3}
       propertyPath: m_RootOrder
