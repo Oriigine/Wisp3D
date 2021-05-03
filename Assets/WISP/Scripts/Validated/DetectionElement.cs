@@ -199,9 +199,9 @@ public class DetectionElement : MonoBehaviour
     }
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, m_DetectionRange);
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, m_ActivationRange);
+        //Gizmos.color = Color.yellow;
+        //Gizmos.DrawWireSphere(transform.position, m_DetectionRange);
+        //Gizmos.color = Color.green;
+        //Gizmos.DrawWireSphere(transform.position, m_ActivationRange);
     }
 }
