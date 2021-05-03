@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class ActiveLight : MonoBehaviour
 {
+    [SerializeField]
     public GameObject light;
   
+    [SerializeField]
     private DetectionBehaviour m_Detect;
+
+    [SerializeField]
     private Interractible m_Interractible;
+
+    [SerializeField]
     private bool IsAlreadyActive = false;
 
 
