@@ -7,6 +7,9 @@ public class DetectionBehaviour : MonoBehaviour
     [SerializeField]
     private bool m_IsDetected = false;
 
+    [SerializeField]
+    private bool m_BatIsDetected = false;
+
     public bool IsDetected
     {
         get
@@ -19,4 +22,20 @@ public class DetectionBehaviour : MonoBehaviour
             m_IsDetected = value;
         }
     }
+
+
+    public bool BatIsDetected
+    {
+        get
+        {
+            return m_BatIsDetected;
+        }
+
+        set
+        {
+            m_BatIsDetected = value;
+        }
+    }
+
+
 }
