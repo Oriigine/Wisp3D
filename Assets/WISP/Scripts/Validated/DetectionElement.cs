@@ -11,6 +11,7 @@ public class DetectionElement : MonoBehaviour
     public float m_ActivationRange = 10;
     public LayerMask m_LayerToDetect;
     public LayerMask m_Ground;
+    public LayerMask m_EnemyLayer;
 
     //Variables concernant les lights
     [SerializeField]
@@ -92,13 +93,55 @@ public class DetectionElement : MonoBehaviour
         if (m_FlashActivated)
         {
             StartCoroutine("Detection");
+            StartCoroutine("BatsDetection");
+
         }
         //sinon
         else
         {
             StopCoroutine("Detection");
+            StopCoroutine("BatsDetection");
         }
     }
+
+
+    IEnumerator BatsDetection()
+    {
+
+        Collider[] l_Bats = Physics.OverlapSphere(transform.position, m_DetectionRange, m_EnemyLayer);
+
+        if (l_Bats.Length > 0)
+        {
+            Debug.Log("y a Bats");
+
+            foreach (Collider Bat in l_Bats)
+            {
+                RaycastHit l_TestCollision;
+                Physics.Linecast(transform.position, Bat.transform.position, out l_TestCollision, m_Ground);
+
+                if (l_TestCollision.collider == Bat && Vector2.Distance(Bat.transform.position, transform.position) < m_ActivationRange)
+                {
+                    Debug.Log("BatDetect");
+                    // L'élément est détécté
+                    Bat.GetComponent<DetectionBehaviour>().BatIsDetected = true;
+                }
+                // sinon
+                else
+                {
+                    Debug.Log("BatDetectno");
+
+                    // L'élément n'est pas/plus détécté
+                    Bat.GetComponent<DetectionBehaviour>().BatIsDetected = false;
+                }
+            }
+
+          
+        }
+
+        yield return null;
+        
+    }
+
 
     IEnumerator Detection()
     {
@@ -106,6 +149,7 @@ public class DetectionElement : MonoBehaviour
         // Retourne tout les GPE présent dans la zone de détection
         Collider[] l_InteractibleDetecte = Physics.OverlapSphere(transform.position, m_DetectionRange, m_LayerToDetect);
 
+       
         // On vérifie si le tableau n'est pas vide
         if (l_InteractibleDetecte.Length > 0)
         {
@@ -133,6 +177,8 @@ public class DetectionElement : MonoBehaviour
                 }
             }
         }
+
+        
 
         yield return null;
     }
