@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class ActiveLight : MonoBehaviour
 {
-    public GameObject light;
+    [SerializeField]
+    public GameObject m_Light;
   
+    [SerializeField]
     private DetectionBehaviour m_Detect;
+
+    [SerializeField]
     private Interractible m_Interractible;
+
+    [SerializeField]
     private bool IsAlreadyActive = false;
 
 
@@ -20,14 +26,14 @@ public class ActiveLight : MonoBehaviour
     {
         if (m_Detect.IsDetected)
         {
-            light.SetActive(true);
+            m_Light.SetActive(true);
             IsAlreadyActive = true;
             m_Interractible.IsActive = true;
 
         }
         else if (m_Detect.IsDetected == false && IsAlreadyActive == false)
         {
-            light.SetActive(false);
+            m_Light.SetActive(false);
             m_Interractible.IsActive = false;
         }
     }
