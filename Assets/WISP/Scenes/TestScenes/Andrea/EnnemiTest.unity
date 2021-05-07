@@ -1259,6 +1259,7 @@ GameObject:
   - component: {fileID: 1407665146}
   - component: {fileID: 1407665145}
   - component: {fileID: 1407665151}
+  - component: {fileID: 1407665152}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1404,6 +1405,18 @@ MonoBehaviour:
   m_MaxRange: 40
   m_Counter: 0
   m_FlashDuration: 0
+--- !u!114 &1407665152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407665144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026efa26f428bae4eb8d98a43d2a7667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1450389371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,7 +1966,7 @@ GameObject:
   - component: {fileID: 2015287225}
   m_Layer: 15
   m_Name: ennemi
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

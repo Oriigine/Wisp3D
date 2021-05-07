@@ -24,11 +24,10 @@ public class ActiveLightTrigger : MonoBehaviour
         if(m_IsActive == false)
         {
             m_LightToActivate.SetActive(true);
+            if(m_Interact != null)
+            {
+                m_Interact.IsActive = true;
+            }
         }
-    }
-
-    private void Update()
-    {
-        //if()
     }
 }
