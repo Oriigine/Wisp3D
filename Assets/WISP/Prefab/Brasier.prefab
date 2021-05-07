@@ -110,7 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsActive: 0
-  m_InterractionList: []
 --- !u!1 &7380835778442817653
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +160,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -437,4 +436,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LightToActivate: {fileID: 7380835778442817653}
+  m_Interact: {fileID: 0}
   m_IsActive: 0
