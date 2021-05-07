@@ -7,6 +7,12 @@ public class Interraction : MonoBehaviour
     [SerializeField]
     private List<Interractible> m_Interractibles = new List<Interractible>();
 
+    [SerializeField]
+    private GameObject m_Door = null;
+
+    [SerializeField]
+    private bool m_IsOpen = false;
+
     private void Update()
     {
         Activationconditon();
@@ -33,11 +39,15 @@ public class Interraction : MonoBehaviour
         if (flag)
         {
             OpenDoor();
+            m_IsOpen = true;
         }
     }
 
     void OpenDoor()
     {
-        Debug.Log("jsuiaktivaient");
+        if(m_IsOpen == true)
+        {
+            m_Door.SetActive(false);
+        }
     }
 }
