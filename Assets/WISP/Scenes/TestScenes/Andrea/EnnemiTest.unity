@@ -1651,6 +1651,17 @@ MonoBehaviour:
   m_MaxRange: 40
   m_Counter: 0
   m_FlashDuration: 0
+  m_Bats:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1407665152
 MonoBehaviour:
   m_ObjectHideFlags: 0
