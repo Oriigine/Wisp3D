@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class DeathAndRespawnComponent : MonoBehaviour
 {
    
+    // La fonction Respawn se joue dès lors que le joueur entre en colision avec un objet qui porte le tag "enemy"
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "enemy")
@@ -14,7 +15,7 @@ public class DeathAndRespawnComponent : MonoBehaviour
         }
     }
 
-
+    //La fonction reload la scene.
     void Respawn()
     {
         Debug.Log("respawn");

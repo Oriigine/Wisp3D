@@ -36,6 +36,7 @@ public class BatBehaviour : MonoBehaviour
     {
         Debug.Log(m_EnnemiState);
         float l_Step = m_Speed * Time.deltaTime;
+
         if ( m_EnnemiState == BatStates.Sleepy && Vector3.Distance(transform.position, m_Player.position) < m_DetectionRange)
         {
            
