@@ -49,6 +49,9 @@ public class DetectionElement : MonoBehaviour
 
     void Update()
     {
+
+
+
         // lorsque j'appuie sur click gauche et que m_Counter est nul
         if (Input.GetKey(KeyCode.Mouse0) && m_Counter <= 0)
         {
@@ -108,6 +111,7 @@ public class DetectionElement : MonoBehaviour
     IEnumerator BatsDetection()
     {
 
+        //retourne toutes les chauves souris dasn la zone de detection
         Collider[] l_Bats = Physics.OverlapSphere(transform.position, m_DetectionRange, m_EnemyLayer);
 
         if (l_Bats.Length > 0)
