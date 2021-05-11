@@ -7,6 +7,8 @@ public class Interractible : MonoBehaviour
     [SerializeField]
     private bool m_IsActive = false;
 
+
+    //Accesseur permettant de récupérer et de modifié le booléen "IsActive"
     public bool IsActive
     {
         get { return m_IsActive; }
