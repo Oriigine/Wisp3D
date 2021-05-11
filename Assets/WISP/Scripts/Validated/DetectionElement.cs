@@ -11,6 +11,7 @@ public class DetectionElement : MonoBehaviour
     public float m_ActivationRange = 10;
     public LayerMask m_LayerToDetect;
     public LayerMask m_Ground;
+    public LayerMask m_EnemyLayer;
 
     //Variables concernant les lights
     [SerializeField]
@@ -38,6 +39,9 @@ public class DetectionElement : MonoBehaviour
     [SerializeField]
     float m_FlashDuration = 0f;
 
+    [SerializeField]
+    Collider[] m_Bats;
+
 
     private void Start()
     {
@@ -48,57 +52,119 @@ public class DetectionElement : MonoBehaviour
 
     void Update()
     {
-        // lorsque j'appuie sur click gauche et que m_Counter est nul
-        if (Input.GetKey(KeyCode.Mouse0) && m_Counter <= 0)
-        {
 
-            m_Time = 0;
+      
 
-       
-
-            // si le flash n'est pas déjà activé
-            if (m_FlashActivated == false)
+            // lorsque j'appuie sur click gauche et que m_Counter est nul
+            if (Input.GetKey(KeyCode.Mouse0) && m_Counter <= 0)
             {
-                // je démarre la coroutine FlahingIn qui aggrandit la range de la light (le flash s'active)
-                StartCoroutine(FlashingIn(l_FlashParam));
-                m_FlashDuration += 1.5f;
 
+                m_Time = 0;
+
+
+
+                // si le flash n'est pas déjà activé
+                if (m_FlashActivated == false)
+                {
+                    // je démarre la coroutine FlahingIn qui aggrandit la range de la light (le flash s'active)
+                    StartCoroutine(FlashingIn(l_FlashParam));
+                    m_FlashDuration += 1.5f;
+
+                }
             }
-        }
-        
-        // Si m_Counter à une valeur supérieure ou égale à la durée d'éclairage du flash 
-        if( m_Counter >= m_TimeToFlashOn)
-        {
 
-            m_Time = 0;
+            // Si m_Counter à une valeur supérieure ou égale à la durée d'éclairage du flash 
+            if (m_Counter >= m_TimeToFlashOn)
+            {
+
+                m_Time = 0;
+
+                // si le flash est déjà activé
+                if (m_FlashActivated == true)
+                {
+                    // on démarre la coroutine qui va éteindre le flash
+
+                    m_FlashDuration -= Time.deltaTime;
+                }
+            }
+
+            if (m_FlashDuration <= 0)
+            {
+                StartCoroutine(FlashingOut(l_FlashParam));
+            }
+
+
 
             // si le flash est déjà activé
-            if (m_FlashActivated == true)
+            if (m_FlashActivated)
             {
-                // on démarre la coroutine qui va éteindre le flash
+                StartCoroutine("Detection");
+                StartCoroutine("BatsDetection");
 
-                m_FlashDuration -= Time.deltaTime;
             }
-        }
-        
-        if (m_FlashDuration <= 0)
-        {
-            StartCoroutine(FlashingOut(l_FlashParam));
-        }
+            //sinon
+            else
+            {
+                StopCoroutine("Detection");
+                StopCoroutine("BatsDetection");
+            }
 
+           if (m_Bats.Length > 0)
+           {
+               foreach (Collider Bat in m_Bats)
+               {
+                   RaycastHit l_TestCollision;
+                   Physics.Linecast(transform.position, Bat.transform.position, out l_TestCollision, m_Ground);
 
+                if (Vector2.Distance(Bat.transform.position, transform.position) > m_ActivationRange || m_FlashActivated == false)
+                   {
+                       // L'élément n'est pas/plus détécté
+                       Bat.GetComponent<DetectionBehaviour>().BatIsDetected = false;
+                   }
+               }
+           }
 
-        // si le flash est déjà activé
-        if (m_FlashActivated)
-        {
-            StartCoroutine("Detection");
-        }
-        //sinon
-        else
-        {
-            StopCoroutine("Detection");
-        }
     }
+
+
+    IEnumerator BatsDetection()
+    {
+
+        //retourne toutes les chauves souris dasn la zone de detection
+         m_Bats = Physics.OverlapSphere(transform.position, m_DetectionRange, m_EnemyLayer);
+
+        if (m_Bats.Length > 0)
+        {
+            Debug.Log("y a Bats");
+
+            foreach (Collider Bat in m_Bats)
+            {
+                RaycastHit l_TestCollision;
+                Physics.Linecast(transform.position, Bat.transform.position, out l_TestCollision, m_Ground);
+
+                if (l_TestCollision.collider == Bat && Vector2.Distance(Bat.transform.position, transform.position) < m_ActivationRange)
+                {
+                    Debug.Log("BatDetect");
+                    // L'élément est détécté
+                    Bat.GetComponent<DetectionBehaviour>().BatIsDetected = true;
+                }
+                // sinon
+                else 
+                {
+                    Debug.Log("BatDetectno");
+
+                    // L'élément n'est pas/plus détécté
+                    Bat.GetComponent<DetectionBehaviour>().BatIsDetected = false;
+                }
+            }
+
+          
+        }
+
+        yield return null;
+        
+    }
+
 
     IEnumerator Detection()
     {
@@ -106,6 +172,7 @@ public class DetectionElement : MonoBehaviour
         // Retourne tout les GPE présent dans la zone de détection
         Collider[] l_InteractibleDetecte = Physics.OverlapSphere(transform.position, m_DetectionRange, m_LayerToDetect);
 
+       
         // On vérifie si le tableau n'est pas vide
         if (l_InteractibleDetecte.Length > 0)
         {
@@ -133,6 +200,8 @@ public class DetectionElement : MonoBehaviour
                 }
             }
         }
+
+        
 
         yield return null;
     }
