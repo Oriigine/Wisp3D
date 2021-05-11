@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8647527709219482108}
   - component: {fileID: 8647527709219482099}
   - component: {fileID: 8647527709219482098}
+  - component: {fileID: 1412223638}
   m_Layer: 10
   m_Name: LightDetector
   m_TagString: Untagged
@@ -111,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsDetected: 0
+  m_BatIsDetected: 0
 --- !u!114 &8647527709219482098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,8 +127,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Light: {fileID: 8647527710824253698}
   m_Detect: {fileID: 8647527709219482099}
-  m_Interractible: {fileID: 0}
+  m_Interractible: {fileID: 1412223638}
   IsAlreadyActive: 0
+--- !u!114 &1412223638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647527709219482097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9e63a83bdcafd46a8add5977e0ed29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsActive: 0
 --- !u!1 &8647527710824253698
 GameObject:
   m_ObjectHideFlags: 0
