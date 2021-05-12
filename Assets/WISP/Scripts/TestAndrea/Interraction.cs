@@ -21,16 +21,18 @@ public class Interraction : MonoBehaviour
     private void Activationconditon()
     {
         bool flag = false;
-
+        //On regarde si tout les interractibles sont activés
         foreach (Interractible p_Interractible in m_Interractibles)
         {
             if (p_Interractible.IsActive)
             {
+                //Si oui on passe le flag a true
                 flag = true;
 
             }
             if (!p_Interractible.IsActive)
             {
+                //si non bah rip 
                 flag = false;
                 break;
             }
@@ -38,6 +40,7 @@ public class Interraction : MonoBehaviour
 
         if (flag)
         {
+            //Si flag est true on ouvre la porte :)
             OpenDoor();
             m_IsOpen = true;
         }
