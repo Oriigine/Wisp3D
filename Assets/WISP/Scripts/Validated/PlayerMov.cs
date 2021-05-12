@@ -10,6 +10,10 @@ public class PlayerMov: MonoBehaviour
 
     Vector3 movement;
 
+    private void Start()
+    {
+        m_Rb = GetComponent<Rigidbody>();
+    }
     private void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
