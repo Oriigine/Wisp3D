@@ -16,6 +16,7 @@ public class ActiveLightTrigger : MonoBehaviour
 
     private void Awake()
     {
+        m_Interact = GetComponent<Interractible>();
         m_LightToActivate.SetActive(false);
     }
 
@@ -30,4 +31,12 @@ public class ActiveLightTrigger : MonoBehaviour
             }
         }
     }
+
+
+    public bool LightActivaded
+    {
+        get { return m_IsActive; }
+        set { m_IsActive = value; }
+    }
+    
 }
