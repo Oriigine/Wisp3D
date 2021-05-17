@@ -436,5 +436,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LightToActivate: {fileID: 7380835778442817653}
-  m_Interact: {fileID: 0}
+  m_Interact: {fileID: 3851686928839567061}
   m_IsActive: 0

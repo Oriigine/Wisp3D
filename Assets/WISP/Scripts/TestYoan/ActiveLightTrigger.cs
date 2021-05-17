@@ -16,18 +16,34 @@ public class ActiveLightTrigger : MonoBehaviour
 
     private void Awake()
     {
+        //On set la light a �teinte de base
+        m_Interact = GetComponent<Interractible>();
         m_LightToActivate.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider l_Trigger)
     {
-        if(m_IsActive == false)
+        //Si l'objet n'a pas �t� activ�
+        if(m_Interact.IsActive == false)
         {
+            //On active la light qu'on veut activer
             m_LightToActivate.SetActive(true);
+
+            //Si l'objet n'est pas activ� 
             if(m_Interact != null)
             {
+                //On l'active
                 m_Interact.IsActive = true;
+                
             }
         }
     }
+
+
+    //public bool LightActivaded
+    //{
+    //    get { return m_IsActive; }
+    //    set { m_IsActive = value; }
+    //}
+    
 }
