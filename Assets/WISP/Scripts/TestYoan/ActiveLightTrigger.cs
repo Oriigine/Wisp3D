@@ -24,7 +24,7 @@ public class ActiveLightTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider l_Trigger)
     {
         //Si l'objet n'a pas �t� activ�
-        if(m_IsActive == false)
+        if(m_Interact.IsActive == false)
         {
             //On active la light qu'on veut activer
             m_LightToActivate.SetActive(true);
@@ -34,15 +34,16 @@ public class ActiveLightTrigger : MonoBehaviour
             {
                 //On l'active
                 m_Interact.IsActive = true;
+                
             }
         }
     }
 
 
-    public bool LightActivaded
-    {
-        get { return m_IsActive; }
-        set { m_IsActive = value; }
-    }
+    //public bool LightActivaded
+    //{
+    //    get { return m_IsActive; }
+    //    set { m_IsActive = value; }
+    //}
     
 }
