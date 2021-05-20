@@ -113,7 +113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6712178570752992157
 Transform:
   m_ObjectHideFlags: 0
@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 8190470610738339761}
   - component: {fileID: 3339606745698115496}
   - component: {fileID: 6665826617765491776}
+  - component: {fileID: 9087177517540652942}
   m_Layer: 0
   m_Name: FireSource
   m_TagString: Untagged
@@ -422,4 +423,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LightToActivate: {fileID: 7380835778442817653}
+  m_Interact: {fileID: 9087177517540652942}
+  m_IsActive: 0
+--- !u!114 &9087177517540652942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8069740550107084770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9e63a83bdcafd46a8add5977e0ed29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_IsActive: 0

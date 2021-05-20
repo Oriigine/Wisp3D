@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 271623069171366461}
   - component: {fileID: 3667926829529352432}
   - component: {fileID: 871025806904851836}
-  - component: {fileID: 3851686928839567061}
   m_Layer: 0
   m_Name: Brasier
   m_TagString: Untagged
@@ -97,19 +96,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &3851686928839567061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6797914822768242365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d9e63a83bdcafd46a8add5977e0ed29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsActive: 0
 --- !u!1 &7380835778442817653
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +325,7 @@ GameObject:
   - component: {fileID: 8190470610738339761}
   - component: {fileID: 3339606745698115496}
   - component: {fileID: 677800583680691698}
+  - component: {fileID: 2714729264755898527}
   m_Layer: 0
   m_Name: FireSource
   m_TagString: Untagged
@@ -436,5 +423,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LightToActivate: {fileID: 7380835778442817653}
-  m_Interact: {fileID: 3851686928839567061}
+  m_Interact: {fileID: 2714729264755898527}
+  m_IsActive: 0
+--- !u!114 &2714729264755898527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8069740550107084770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9e63a83bdcafd46a8add5977e0ed29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_IsActive: 0
