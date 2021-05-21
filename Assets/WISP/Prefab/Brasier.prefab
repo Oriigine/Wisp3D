@@ -139,7 +139,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0, g: 1, b: 0.86666656, a: 1}
+  m_Color: {r: 1, g: 0.39215687, b: 0, a: 1}
   m_Intensity: 47.746483
   m_Range: 3.5
   m_SpotAngle: 30
@@ -341,7 +341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8069740550107084770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.25, z: -0.00000011920929}
+  m_LocalPosition: {x: 0, y: 1.8532248, z: -0.30174765}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6712178570752992157}
@@ -424,7 +424,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightToActivate: {fileID: 7380835778442817653}
   m_Interact: {fileID: 2714729264755898527}
-  m_IsActive: 0
 --- !u!114 &2714729264755898527
 MonoBehaviour:
   m_ObjectHideFlags: 0
