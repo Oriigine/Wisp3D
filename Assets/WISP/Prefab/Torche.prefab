@@ -139,8 +139,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.35283017, g: 1, b: 0.9126591, a: 1}
-  m_Intensity: 47.746483
+  m_Color: {r: 1, g: 0.39215687, b: 0, a: 1}
+  m_Intensity: 1193.662
   m_Range: 3.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -183,7 +183,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
+  m_ColorTemperature: 3000
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 600
+  m_Intensity: 15000
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 8190470610738339761}
   - component: {fileID: 3339606745698115496}
   - component: {fileID: 6665826617765491776}
+  - component: {fileID: 9087177517540652942}
   m_Layer: 0
   m_Name: FireSource
   m_TagString: Untagged
@@ -340,7 +341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8069740550107084770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.25, z: -0.00000011920929}
+  m_LocalPosition: {x: 0, y: 1.25, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6712178570752992157}
@@ -422,4 +423,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LightToActivate: {fileID: 7380835778442817653}
+  m_Interact: {fileID: 9087177517540652942}
+--- !u!114 &9087177517540652942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8069740550107084770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9e63a83bdcafd46a8add5977e0ed29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_IsActive: 0
