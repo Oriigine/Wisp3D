@@ -68,7 +68,7 @@ public class DetectionElement : MonoBehaviour
                 {
                     // je démarre la coroutine FlahingIn qui aggrandit la range de la light (le flash s'active)
                     StartCoroutine(FlashingIn(l_FlashParam));
-                    m_FlashDuration += 1.5f;
+                    m_FlashDuration += 0.2f;
 
                 }
             }
