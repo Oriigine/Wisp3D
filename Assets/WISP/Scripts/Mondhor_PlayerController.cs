@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class Mondhor_PlayerController : MonoBehaviour
 {
     //Les floats que le code utilise pour gérer la vitesse de déplacement du joueur (affichée en inspecteur pour des raisons de debug)
     [SerializeField]
