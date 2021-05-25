@@ -408,8 +408,8 @@ GameObject:
   - component: {fileID: 1289820766}
   - component: {fileID: 1289820765}
   - component: {fileID: 1289820764}
-  - component: {fileID: 1289820763}
   - component: {fileID: 1289820768}
+  - component: {fileID: 1289820763}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -426,14 +426,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1289820762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ef469a3b87d82340ad0cf53cc1c4eb7, type: 3}
+  m_Script: {fileID: 11500000, guid: df422342aa597904994d6a2c53e40387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HorizontalSpeed: 0
   VerticalSpeed: 0
   MaxSpeed: 0.5
-  Acceleration: 0.2
-  Deceleration: 0.3
+  Acceleration: 1
+  Deceleration: 2
 --- !u!65 &1289820764
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -524,7 +524,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!1 &1372845470
 GameObject:

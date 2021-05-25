@@ -52,7 +52,7 @@ public class Mondhor_PlayerController : MonoBehaviour
             D_Pressed = true;
         }
 
-        //Si on appuie sur Q, on active un booléen
+        //Si on appuie sur Q, on active un booléen 
         if (Input.GetKey(KeyCode.Q))
         {
             Q_Pressed = true;
