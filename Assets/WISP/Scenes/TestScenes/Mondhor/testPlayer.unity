@@ -434,11 +434,6 @@ MonoBehaviour:
   MaxSpeed: 0.5
   Acceleration: 0.2
   Deceleration: 0.3
-  normalized: 0
-  D_Pressed: 0
-  Q_Pressed: 0
-  Z_Pressed: 0
-  S_Pressed: 0
 --- !u!65 &1289820764
 BoxCollider:
   m_ObjectHideFlags: 0
