@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interractible : MonoBehaviour
 {
     [SerializeField]
-    private bool m_IsActive = false;
+    private bool m_IsActive;
 
 
     //Accesseur permettant de récupérer et de modifié le booléen "IsActive"
