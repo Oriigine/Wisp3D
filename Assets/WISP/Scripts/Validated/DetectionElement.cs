@@ -21,9 +21,9 @@ public class DetectionElement : MonoBehaviour
 
     private bool m_FlashActivated = false;
     [SerializeField]
-    private float m_TimeToFlashOn= 10;
+    private float m_TimeToFlashOn = 10;
     [SerializeField]
-    private float m_TimeToFlashOff= 10;
+    private float m_TimeToFlashOff = 10;
 
     [SerializeField]
     private float m_MinRange = 0f; // min range
@@ -52,86 +52,79 @@ public class DetectionElement : MonoBehaviour
 
     void Update()
     {
+        // lorsque j'appuie sur click gauche et que m_Counter est nul
+        if (Input.GetKey(KeyCode.Mouse0) && m_Counter <= 0)
+        {
 
-      
+            m_Time = 0;
 
-            // lorsque j'appuie sur click gauche et que m_Counter est nul
-            if (Input.GetKey(KeyCode.Mouse0) && m_Counter <= 0)
+
+
+            // si le flash n'est pas déjà activé
+            if (m_FlashActivated == false)
             {
+                // je démarre la coroutine FlahingIn qui aggrandit la range de la light (le flash s'active)
+                StartCoroutine(FlashingIn(l_FlashParam));
+                m_FlashDuration += 0.2f;
 
-                m_Time = 0;
-
-
-
-                // si le flash n'est pas déjà activé
-                if (m_FlashActivated == false)
-                {
-                    // je démarre la coroutine FlahingIn qui aggrandit la range de la light (le flash s'active)
-                    StartCoroutine(FlashingIn(l_FlashParam));
-                    m_FlashDuration += 0.2f;
-
-                }
             }
+        }
 
-            // Si m_Counter à une valeur supérieure ou égale à la durée d'éclairage du flash 
-            if (m_Counter >= m_TimeToFlashOn)
-            {
+        // Si m_Counter à une valeur supérieure ou égale à la durée d'éclairage du flash 
+        if (m_Counter >= m_TimeToFlashOn)
+        {
 
-                m_Time = 0;
-
-                // si le flash est déjà activé
-                if (m_FlashActivated == true)
-                {
-                    // on démarre la coroutine qui va éteindre le flash
-
-                    m_FlashDuration -= Time.deltaTime;
-                }
-            }
-
-            if (m_FlashDuration <= 0)
-            {
-                StartCoroutine(FlashingOut(l_FlashParam));
-            }
-
-
+            m_Time = 0;
 
             // si le flash est déjà activé
-            if (m_FlashActivated)
+            if (m_FlashActivated == true)
             {
-                StartCoroutine("Detection");
-                StartCoroutine("BatsDetection");
+                // on démarre la coroutine qui va éteindre le flash
 
+                m_FlashDuration -= Time.deltaTime;
             }
-            //sinon
-            else
+        }
+
+        if (m_FlashDuration <= 0)
+        {
+            StartCoroutine(FlashingOut(l_FlashParam));
+        }
+
+        // si le flash est déjà activé
+        if (m_FlashActivated)
+        {
+            StartCoroutine("Detection");
+            StartCoroutine("BatsDetection");
+
+        }
+        //sinon
+        else
+        {
+            StopCoroutine("Detection");
+            StopCoroutine("BatsDetection");
+        }
+
+        if (m_Bats.Length > 0)
+        {
+            foreach (Collider Bat in m_Bats)
             {
-                StopCoroutine("Detection");
-                StopCoroutine("BatsDetection");
-            }
-
-           if (m_Bats.Length > 0)
-           {
-               foreach (Collider Bat in m_Bats)
-               {
-                   RaycastHit l_TestCollision;
-                   Physics.Linecast(transform.position, Bat.transform.position, out l_TestCollision, m_Ground);
+                RaycastHit l_TestCollision;
+                Physics.Linecast(transform.position, Bat.transform.position, out l_TestCollision, m_Ground);
 
                 if (Vector2.Distance(Bat.transform.position, transform.position) > m_ActivationRange || m_FlashActivated == false)
-                   {
-                       // L'élément n'est pas/plus détécté
-                       Bat.GetComponent<DetectionBehaviour>().BatIsDetected = false;
-                   }
-               }
-           }
-
+                {
+                    // L'élément n'est pas/plus détécté
+                    Bat.GetComponent<DetectionBehaviour>().BatIsDetected = false;
+                }
+            }
+        }
     }
 
 
     IEnumerator BatsDetection()
     {
-
         //retourne toutes les chauves souris dasn la zone de detection
-         m_Bats = Physics.OverlapSphere(transform.position, m_DetectionRange, m_EnemyLayer);
+        m_Bats = Physics.OverlapSphere(transform.position, m_DetectionRange, m_EnemyLayer);
 
         if (m_Bats.Length > 0)
         {
@@ -149,7 +142,7 @@ public class DetectionElement : MonoBehaviour
                     Bat.GetComponent<DetectionBehaviour>().BatIsDetected = true;
                 }
                 // sinon
-                else 
+                else
                 {
                     Debug.Log("BatDetectno");
 
@@ -157,22 +150,16 @@ public class DetectionElement : MonoBehaviour
                     Bat.GetComponent<DetectionBehaviour>().BatIsDetected = false;
                 }
             }
-
-          
         }
-
         yield return null;
-        
     }
 
 
     IEnumerator Detection()
     {
-        
         // Retourne tout les GPE présent dans la zone de détection
         Collider[] l_InteractibleDetecte = Physics.OverlapSphere(transform.position, m_DetectionRange, m_LayerToDetect);
 
-       
         // On vérifie si le tableau n'est pas vide
         if (l_InteractibleDetecte.Length > 0)
         {
@@ -200,14 +187,11 @@ public class DetectionElement : MonoBehaviour
                 }
             }
         }
-
-        
-
         yield return null;
     }
+
     IEnumerator FlashingIn(Light lightToFade)
     {
-        
         // le flash n'est pas activé
         if (m_FlashActivated == false)
         {
@@ -215,30 +199,28 @@ public class DetectionElement : MonoBehaviour
             while (m_Counter < m_TimeToFlashOn)
             {
                 // si m_Time est inférieur à 1 on l'incrémente avec une certaine valeur 
-                if(m_Time < 1)
+                if (m_Time < 1)
                 {
                     m_Time += 12 * Time.deltaTime;
                 }
 
                 // on incrémente m_Counter 2x plus vite que m-Time pour qu'ils arrivent au même moment à leur valeur max
-                m_Counter +=  24 * Time.deltaTime;
+                m_Counter += 24 * Time.deltaTime;
 
                 // On effectue un lerp entre valeur min et max des inner et outer range de la light
 
                 lightToFade.range = Mathf.Lerp(m_MinRange, m_MaxRange, m_Time);
-               
 
                 // le flash est activé
-           
-                 yield return m_FlashActivated = true;
-                
+
+                yield return m_FlashActivated = true;
+
             }
         }
     }
 
     IEnumerator FlashingOut(Light lightToFade)
     {
-        
         // si le flash n'est pas activé
         if (m_FlashActivated == true)
         {
@@ -248,17 +230,15 @@ public class DetectionElement : MonoBehaviour
                 // si m_Time est inférieur à 1 on l'incrémente avec une certaine valeur 
                 if (m_Time < 1)
                 {
-                    m_Time += 0.5f *  Time.deltaTime;
+                    m_Time += 0.5f * Time.deltaTime;
                 }
 
                 // on décrémente m_Counter 2x plus vite que m-Time pour qu'ils arrivent au même moment à leur valeur max
-                m_Counter -=  Time.deltaTime;
+                m_Counter -= Time.deltaTime;
 
                 // On effectue un lerp entre valeur max et min des inner et outer range de la light
 
-
-                lightToFade.range = Mathf.Lerp( m_MaxRange, m_MinRange, m_Time);
-
+                lightToFade.range = Mathf.Lerp(m_MaxRange, m_MinRange, m_Time);
 
                 // Le flash est désactivé
                 yield return m_FlashActivated = false;
@@ -266,6 +246,7 @@ public class DetectionElement : MonoBehaviour
 
         }
     }
+
     void OnDrawGizmos()
     {
         //Gizmos.color = Color.yellow;
