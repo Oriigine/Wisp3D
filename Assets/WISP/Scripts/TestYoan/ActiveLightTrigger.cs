@@ -19,6 +19,10 @@ public class ActiveLightTrigger : MonoBehaviour
         {
             m_LightToActivate.SetActive(true);
         }
+        else if(m_Interact.IsActive == false)
+        {
+            m_LightToActivate.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider l_Trigger)
