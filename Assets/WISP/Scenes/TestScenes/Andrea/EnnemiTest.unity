@@ -1648,10 +1648,10 @@ GameObject:
   - component: {fileID: 1407665149}
   - component: {fileID: 1407665148}
   - component: {fileID: 1407665147}
-  - component: {fileID: 1407665146}
   - component: {fileID: 1407665145}
   - component: {fileID: 1407665151}
   - component: {fileID: 1407665152}
+  - component: {fileID: 1407665146}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1684,11 +1684,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1407665144}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ac70d0ab3bc1894a89ec531e74e9519, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ef469a3b87d82340ad0cf53cc1c4eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  m_Rb: {fileID: 1407665145}
+  HorizontalSpeed: 0
+  VerticalSpeed: 0
+  MaxSpeed: 0.5
+  Acceleration: 0.7
+  Deceleration: 1
 --- !u!135 &1407665147
 SphereCollider:
   m_ObjectHideFlags: 0
