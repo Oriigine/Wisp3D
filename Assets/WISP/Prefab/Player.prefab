@@ -230,7 +230,8 @@ GameObject:
   - component: {fileID: 4798743910540691065}
   - component: {fileID: 4744770968507061113}
   - component: {fileID: 1183532209998018364}
-  - component: {fileID: 4248521965063892171}
+  - component: {fileID: -8439818027163190642}
+  - component: {fileID: 6613756451935723258}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -345,7 +346,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &4248521965063892171
+--- !u!114 &-8439818027163190642
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -365,13 +366,30 @@ MonoBehaviour:
   m_Ground:
     serializedVersion: 2
     m_Bits: 3072
+  m_EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 32768
   m_FlashLight: {fileID: 594226367106001657}
-  m_TimeToFlashOn: 2
-  m_TimeToFlashOff: 0
+  m_TimeToFlashOn: 10
+  m_TimeToFlashOff: 10
   m_MinRange: 0
-  m_MaxRange: 20
+  m_MaxRange: 40
   m_Counter: 0
   m_FlashDuration: 0
+  m_Bats: []
+--- !u!114 &6613756451935723258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658944733157734642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026efa26f428bae4eb8d98a43d2a7667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Checkpoint: {fileID: 0}
 --- !u!1 &4795037275424827461
 GameObject:
   m_ObjectHideFlags: 0

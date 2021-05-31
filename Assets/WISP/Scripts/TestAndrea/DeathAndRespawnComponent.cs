@@ -7,11 +7,17 @@ public class DeathAndRespawnComponent : MonoBehaviour
 {
 
 
-   
+    [SerializeField]
+    private Vector3 StartPos = Vector2.zero;
 
     [SerializeField]
     private Transform m_Checkpoint;
     // La fonction Respawn se joue dès lors que le joueur entre en colision avec un objet qui porte le tag "enemy"
+
+    private void Start()
+    {
+        StartPos = transform.position;
+    }
     private void OnCollisionEnter(Collision collision)
     {
       
@@ -33,6 +39,15 @@ public class DeathAndRespawnComponent : MonoBehaviour
     //La fonction reload la scene.
     void Respawn()
     {
-        transform.position = m_Checkpoint.position;
+       if(m_Checkpoint != null )
+        {
+            transform.position = m_Checkpoint.position;
+
+        }
+       else
+        {
+            transform.position = StartPos;
+        }
+
     }
 }
