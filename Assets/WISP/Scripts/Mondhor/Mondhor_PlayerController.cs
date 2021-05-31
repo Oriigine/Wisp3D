@@ -166,7 +166,7 @@ public class Mondhor_PlayerController : MonoBehaviour
 
 
         //Ici, on normalise les vecteurs de déplacements pour ne pas aller plus vite en diagonale ; la méthode normalize ne marchait pas, et ça allait plus vite de faire ça plutôt que de faire fonctionner la méthode, donc je l'ai fait à la main
-        //On va vérifier qu'au moins une diagonale est utilisée ET que la MaxSpeed n'est pas normalisée, puis on divise MaxSpeed par racine de 2 et on indique au code que la vitesse est bien normalisée pour ne pas qu'il passe plusieurs fois dans la boucle
+        //On va vérifier qu'au moins une diagonale est utilisée ET que la MaxSpeed n'est pas normalisée, puis on divise MaxSpeed par (à peu près) racine de 2 et on indique au code que la vitesse est bien normalisée pour ne pas qu'il passe plusieurs fois dans la boucle
         
         //Diagonale Z+D
         if (Z_Pressed && D_Pressed && normalized == false)
