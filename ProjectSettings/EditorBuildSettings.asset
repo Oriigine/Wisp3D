@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/HDRPDefaultResources/Scenes/SampleScene.unity
-    guid: 3db1837cc97a95e4c98610966fac2b0b
+    path: Assets/WISP/Scenes/GameScenes/Blocking/MainScene.unity
+    guid: ab68bdeebe2e41b4bb5ab23d0c1dea8f
+  - enabled: 1
+    path: Assets/WISP/Scenes/GameScenes/Menus/MainMenu.unity
+    guid: 0ca875a3986e5cb4fabf51a2a8826a8c
   m_configObjects: {}
