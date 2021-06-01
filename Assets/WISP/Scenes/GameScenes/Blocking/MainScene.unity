@@ -2503,7 +2503,7 @@ PrefabInstance:
     - target: {fileID: 4939684220461023839, guid: 4c0c7307b0c01844f9fbfc0bb5cd5ef8, type: 3}
       propertyPath: m_Interractibles.Array.data[0]
       value: 
-      objectReference: {fileID: 1836646900}
+      objectReference: {fileID: 573603646}
     - target: {fileID: 5111252483719807186, guid: 4c0c7307b0c01844f9fbfc0bb5cd5ef8, type: 3}
       propertyPath: m_Name
       value: Door (1)
@@ -2558,6 +2558,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c0c7307b0c01844f9fbfc0bb5cd5ef8, type: 3}
+--- !u!114 &573603646 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1412223638, guid: 5acb5d01afc29b1419258630c084f1df, type: 3}
+  m_PrefabInstance: {fileID: 351368478}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9e63a83bdcafd46a8add5977e0ed29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &576602198
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,6 +3009,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9133304173163353895, guid: 1dd24476fd0d931419bf92e3ca94d267, type: 3}
   m_PrefabInstance: {fileID: 945145095}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &702151599 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1658944733157734642, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
+  m_PrefabInstance: {fileID: 1799138555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &702151607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702151599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51de44a9d2c44ff4189590f71703ae88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aButton: 0
+  bButton: 0
+  xButton: 0
+  yButton: 0
+  rightTrigger: 0
+  RTbool: 0
+  InputBool: 0
 --- !u!4 &704345354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5339992059932012028, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
@@ -6888,6 +6923,10 @@ PrefabInstance:
       propertyPath: m_MaxRange
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: -8439818027163190642, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
+      propertyPath: m_XboxMapping
+      value: 
+      objectReference: {fileID: 702151607}
     - target: {fileID: -8439818027163190642, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
       propertyPath: m_TimeToFlashOn
       value: 2
