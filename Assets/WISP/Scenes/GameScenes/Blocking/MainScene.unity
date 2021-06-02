@@ -3096,6 +3096,7 @@ MonoBehaviour:
   bButton: 0
   xButton: 0
   yButton: 0
+  menuButton: 0
   rightTrigger: 0
   RTbool: 0
   InputBool: 0
@@ -7753,6 +7754,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 284645358833407813, guid: b589a20f7d30b6c4789c13de749bc2a7, type: 3}
+      propertyPath: m_XboxMapping
+      value: 
+      objectReference: {fileID: 702151607}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b589a20f7d30b6c4789c13de749bc2a7, type: 3}
 --- !u!4 &2001532408 stripped

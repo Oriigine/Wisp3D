@@ -10,7 +10,7 @@ public class XboxMapping : MonoBehaviour
     public bool yButton;
     //public bool leftBumper;
     //public bool rightBumper;
-    //public bool menuButton;
+    public bool menuButton;
 
     //public bool lClickButton;
     //public bool rClickButton;
@@ -35,7 +35,7 @@ public class XboxMapping : MonoBehaviour
         yButton = Input.GetButton("Y Button");
         //leftBumper = Input.GetButton("Left Bumper");
         //rightBumper = Input.GetButton("Right Bumper");
-        //menuButton = Input.GetButton("Menu Button");
+        menuButton = Input.GetButton("Menu Button");
         //xBoxGuideHomeButton = Input.GetButton("Xbox Guide/Home Button");
         //leftAnalogStickHorizontal = Input.GetAxis("Left Analog Stick (Horizontal)");
         //rightAnalogStickHorizontal = Input.GetAxis("Right Analog Stick (Horizontal)");
