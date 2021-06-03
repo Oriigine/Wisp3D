@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2165910440899462296}
   - component: {fileID: 2165910440899462295}
   - component: {fileID: 2165910440899462292}
+  - component: {fileID: 1282198893}
   m_Layer: 15
   m_Name: ennemi
   m_TagString: enemy
@@ -118,7 +119,7 @@ MonoBehaviour:
   m_Detect: {fileID: 2165910440899462292}
   m_LayerToDetect:
     serializedVersion: 2
-    m_Bits: 65536
+    m_Bits: 65537
   m_ObstacleLayer:
     serializedVersion: 2
     m_Bits: 67584
@@ -138,3 +139,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsDetected: 0
   m_BatIsDetected: 0
+--- !u!54 &1282198893
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2165910440899462297}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
