@@ -19,7 +19,14 @@ public class Bis_Mondhor_PlayerController : MonoBehaviour
     [SerializeField]
     private float Deceleration = 1f;
 
+    [SerializeField]
+    private float Floating = -0.2f;
+
     Rigidbody m_Rigidbody;
+
+    private bool VerticalStopped;
+
+    
 
     public float GetAxisH = 0;
     public float GetAxisV = 0;
@@ -168,6 +175,7 @@ public class Bis_Mondhor_PlayerController : MonoBehaviour
                 VerticalSpeed += Acceleration * Time.deltaTime;
             }
             m_Rigidbody.velocity = new Vector3(HorizontalSpeed, VerticalSpeed, 0);
+            VerticalStopped = false;
         }
 
         if (S_Pressed == true)
@@ -177,6 +185,7 @@ public class Bis_Mondhor_PlayerController : MonoBehaviour
                 VerticalSpeed -= Acceleration * Time.deltaTime;
             }
             m_Rigidbody.velocity = new Vector3(HorizontalSpeed, VerticalSpeed, 0);
+            VerticalStopped = false;
         }
         #endregion TOUCHES PRESSEES
 
@@ -199,24 +208,32 @@ public class Bis_Mondhor_PlayerController : MonoBehaviour
         }
 
 
-
-        if (Z_Pressed == false && VerticalSpeed > 0)
+        if (VerticalStopped == false)
         {
-            VerticalSpeed -= Deceleration * Time.deltaTime;
-        }
-        m_Rigidbody.velocity = new Vector3(HorizontalSpeed, VerticalSpeed, 0);
 
-        if (S_Pressed == false && VerticalSpeed < 0)
+            if (Z_Pressed == false && VerticalSpeed > 0)
+            {
+                VerticalSpeed -= Deceleration * Time.deltaTime;
+            }
+            m_Rigidbody.velocity = new Vector3(HorizontalSpeed, VerticalSpeed, 0);
+
+            if (S_Pressed == false && VerticalSpeed < 0)
+            {
+                VerticalSpeed += Deceleration * Time.deltaTime;
+            }
+            m_Rigidbody.velocity = new Vector3(HorizontalSpeed, VerticalSpeed, 0);
+
+            if (Z_Pressed == false && S_Pressed == false && VerticalSpeed >= -0.2 && VerticalSpeed <= 0.2)
+            {
+                VerticalStopped = true;
+            }
+
+        }
+
+        else
         {
-            VerticalSpeed += Deceleration * Time.deltaTime;
+            VerticalSpeed = Floating;
         }
-        m_Rigidbody.velocity = new Vector3(HorizontalSpeed, VerticalSpeed, 0);
-
-        if (Z_Pressed == false && S_Pressed == false && VerticalSpeed >= -0.2 && VerticalSpeed <= 0.2)
-        {
-            VerticalSpeed = 0;
-        }
-
         #endregion TOUCHES RELACHEES
     }
 
