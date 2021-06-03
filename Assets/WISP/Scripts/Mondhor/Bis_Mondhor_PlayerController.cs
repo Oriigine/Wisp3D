@@ -19,8 +19,6 @@ public class Bis_Mondhor_PlayerController : MonoBehaviour
     [SerializeField]
     private float Deceleration = 1f;
 
-    private bool normalized = false;
-
     Rigidbody m_Rigidbody;
 
     public float GetAxisH = 0;
