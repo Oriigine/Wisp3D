@@ -228,9 +228,10 @@ GameObject:
   - component: {fileID: 7875805230260324260}
   - component: {fileID: 3811128569124581371}
   - component: {fileID: 4798743910540691065}
-  - component: {fileID: 4744770968507061113}
   - component: {fileID: 1183532209998018364}
-  - component: {fileID: -8439818027163190642}
+  - component: {fileID: 6385472317095293672}
+  - component: {fileID: 3106782980784422441}
+  - component: {fileID: 8252885313747402722}
   - component: {fileID: 6613756451935723258}
   m_Layer: 0
   m_Name: Player
@@ -316,20 +317,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4744770968507061113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658944733157734642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ac70d0ab3bc1894a89ec531e74e9519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  m_Rb: {fileID: 1183532209998018364}
 --- !u!54 &1183532209998018364
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -346,7 +333,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &-8439818027163190642
+--- !u!114 &6385472317095293672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658944733157734642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df422342aa597904994d6a2c53e40387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HorizontalSpeed: 0
+  VerticalSpeed: 0
+  MaxSpeed: 10
+  Acceleration: 20
+  Deceleration: 30
+  Floating: -0.2
+  GetAxisH: 0
+  GetAxisV: 0
+--- !u!114 &3106782980784422441
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -377,6 +384,27 @@ MonoBehaviour:
   m_Counter: 0
   m_FlashDuration: 0
   m_Bats: []
+  m_XboxMapping: {fileID: 8252885313747402722}
+--- !u!114 &8252885313747402722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658944733157734642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5df860c4511f348990529440969c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aButton: 0
+  bButton: 0
+  xButton: 0
+  yButton: 0
+  menuButton: 0
+  rightTrigger: 0
+  RTbool: 0
+  InputBool: 0
 --- !u!114 &6613756451935723258
 MonoBehaviour:
   m_ObjectHideFlags: 0
