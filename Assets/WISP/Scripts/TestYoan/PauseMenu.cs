@@ -8,9 +8,12 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     GameObject m_PauseMenu = null;
 
+    [SerializeField]
+    private XboxMapping m_XboxMapping;
+
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) || m_XboxMapping.menuButton)
         {
             Pause();
         }
