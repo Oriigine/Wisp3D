@@ -43,6 +43,10 @@ public class DetectionElement : MonoBehaviour
     Collider[] m_Bats;
 
 
+   [SerializeField]
+   private XboxMapping m_XboxMapping;
+
+
     private void Start()
     {
         //j'assigne le component light2d de ma light à une variable l_FlashParam
@@ -52,8 +56,10 @@ public class DetectionElement : MonoBehaviour
 
     void Update()
     {
+
+        
         // lorsque j'appuie sur click gauche et que m_Counter est nul
-        if (Input.GetKey(KeyCode.Mouse0) && m_Counter <= 0)
+        if (Input.GetButton("Fire1") || m_XboxMapping.InputBool && m_Counter <= 0)
         {
 
             m_Time = 0;
@@ -63,6 +69,7 @@ public class DetectionElement : MonoBehaviour
             // si le flash n'est pas déjà activé
             if (m_FlashActivated == false)
             {
+                Debug.Log("StartCor");
                 // je démarre la coroutine FlahingIn qui aggrandit la range de la light (le flash s'active)
                 StartCoroutine(FlashingIn(l_FlashParam));
                 m_FlashDuration += 0.2f;
