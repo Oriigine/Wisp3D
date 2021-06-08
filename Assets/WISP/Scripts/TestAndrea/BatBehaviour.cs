@@ -130,6 +130,24 @@ public class BatBehaviour : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        float l_Timer = 10f;
+
+        if(m_EnnemiState == BatStates.Rush && collision.gameObject.layer != m_LayerToDetect)
+        {
+            while(l_Timer > 0)
+            {
+                l_Timer -= Time.deltaTime;
+            }
+            if(l_Timer <= 0)
+            {
+                m_EnnemiState = BatStates.ComeBack;
+                l_Timer = 10f;
+            }
+        }
+    }
+
     void LightDetectionPos()
     {
         // Retourne tout les GPE présent dans la zone de détection

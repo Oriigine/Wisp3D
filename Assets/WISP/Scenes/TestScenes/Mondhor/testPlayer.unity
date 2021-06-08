@@ -432,8 +432,9 @@ MonoBehaviour:
   HorizontalSpeed: 0
   VerticalSpeed: 0
   MaxSpeed: 10
-  Acceleration: 10
-  Deceleration: 10
+  Acceleration: 20
+  Deceleration: 25
+  Floating: -0.2
   GetAxisH: 0
   GetAxisV: 0
 --- !u!65 &1289820764
