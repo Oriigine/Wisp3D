@@ -7,6 +7,13 @@ public class SoundAssets : MonoBehaviour
     public SoundAudioClip[] soundAudioClipArray;
 
     private static SoundAssets _i;
+    private void Awake()
+    {
+        if (_i == null || _i == this)
+            _i = this;
+        else
+            Destroy(this);
+    }
 
     public static SoundAssets i
     {
@@ -14,10 +21,14 @@ public class SoundAssets : MonoBehaviour
         {
             if (_i == null)
             {
-                _i = Instantiate(Resources.Load<SoundAssets>("SoundAssets"));
+                _i = FindObjectOfType<SoundAssets>();
+            }
+            if(_i == null)
+            {
+                GameObject obj = new GameObject("Sound Assets");
+                _i = obj.AddComponent<SoundAssets>();
             }
             return _i;
-            
         }
     }
 
