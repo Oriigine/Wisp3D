@@ -69,13 +69,17 @@ public class DetectionElement : MonoBehaviour
             // si le flash n'est pas déjà activé
             if (m_FlashActivated == false)
             {
+                if(m_Counter <= 0.1)
+                {
+                    SoundManager.PlaySound(SoundManager.SoundEnum.PlayerFlash);
+                }
                 Debug.Log("StartCor");
                 // je démarre la coroutine FlahingIn qui aggrandit la range de la light (le flash s'active)
                 StartCoroutine(FlashingIn(l_FlashParam));
-                SoundManager.PlaySound(SoundManager.SoundEnum.PlayerFlash);
                 m_FlashDuration += 0.2f;
 
             }
+
         }
 
         // Si m_Counter à une valeur supérieure ou égale à la durée d'éclairage du flash 
