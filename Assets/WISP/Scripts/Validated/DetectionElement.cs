@@ -72,6 +72,7 @@ public class DetectionElement : MonoBehaviour
                 Debug.Log("StartCor");
                 // je démarre la coroutine FlahingIn qui aggrandit la range de la light (le flash s'active)
                 StartCoroutine(FlashingIn(l_FlashParam));
+                SoundManager.PlaySound(SoundManager.SoundEnum.PlayerFlash);
                 m_FlashDuration += 0.2f;
 
             }
