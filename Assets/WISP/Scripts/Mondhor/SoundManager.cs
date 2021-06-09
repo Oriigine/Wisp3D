@@ -12,7 +12,7 @@ public static class SoundManager
         LanternTrigger,
         BatOpeningEyes,
         BatCharging,
-
+        
     }
 
     public static void PlaySound(SoundEnum sound)

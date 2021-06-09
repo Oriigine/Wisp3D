@@ -34,6 +34,7 @@ public class ActiveLightTrigger : MonoBehaviour
             m_Interact.IsActive = true;
             //On active la light qu'on veut activer
             m_LightToActivate.SetActive(true);
+            SoundManager.PlaySound(SoundManager.SoundEnum.LanternTrigger);
         }
     }
 
