@@ -36,6 +36,9 @@ public class BatBehaviour : MonoBehaviour
     private LayerMask m_ObstacleLayer;
 
     [SerializeField]
+    private LayerMask m_TorchLayer;
+
+    [SerializeField]
     private Collider[] m_InteractibleDetecte;
 
 
@@ -151,7 +154,7 @@ public class BatBehaviour : MonoBehaviour
     void LightDetectionPos()
     {
         // Retourne tout les GPE présent dans la zone de détection
-        m_InteractibleDetecte = Physics.OverlapSphere(transform.position, m_LightDetectionRange, m_LayerToDetect);
+        m_InteractibleDetecte = Physics.OverlapSphere(transform.position, m_LightDetectionRange, m_TorchLayer);
         float l_Step = m_Speed * Time.deltaTime;
 
 

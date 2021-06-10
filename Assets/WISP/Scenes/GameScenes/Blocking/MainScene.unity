@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1481.7754, g: 1835.8867, b: 2430.4492, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2138,7 +2138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 461118593867707874, guid: 09e0f2543ab678042a3dab98929464e7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09e0f2543ab678042a3dab98929464e7, type: 3}
@@ -2242,6 +2242,31 @@ Transform:
   m_Father: {fileID: 1704159576}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &470727574 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1658944733157734642, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
+  m_PrefabInstance: {fileID: 1799138555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &470727576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470727574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51de44a9d2c44ff4189590f71703ae88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aButton: 0
+  bButton: 0
+  xButton: 0
+  yButton: 0
+  menuButton: 0
+  rightTrigger: 0
+  RTbool: 0
+  InputBool: 0
 --- !u!1001 &476293367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6442,6 +6467,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 704345354}
     - target: {fileID: 2165910440899462295, guid: 037ddea4908762444a0f244cd928e5e2, type: 3}
+      propertyPath: m_TorchLayer.m_Bits
+      value: 65536
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165910440899462295, guid: 037ddea4908762444a0f244cd928e5e2, type: 3}
       propertyPath: m_LayerToDetect.m_Bits
       value: 65537
       objectReference: {fileID: 0}
@@ -7575,6 +7604,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3106782980784422441, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
+      propertyPath: m_XboxMapping
+      value: 
+      objectReference: {fileID: 470727576}
     - target: {fileID: 5339992059932012028, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -7638,6 +7671,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4744770968507061113, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
     - {fileID: -8439818027163190642, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
+    - {fileID: 8252885313747402722, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
 --- !u!1001 &1814151290
 PrefabInstance:
@@ -7695,8 +7729,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 704345354}
     - target: {fileID: 2165910440899462295, guid: 037ddea4908762444a0f244cd928e5e2, type: 3}
+      propertyPath: m_TorchLayer.m_Bits
+      value: 65536
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165910440899462295, guid: 037ddea4908762444a0f244cd928e5e2, type: 3}
       propertyPath: m_LayerToDetect.m_Bits
       value: 65537
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165910440899462295, guid: 037ddea4908762444a0f244cd928e5e2, type: 3}
+      propertyPath: m_ObstacleLayer.m_Bits
+      value: 67584
       objectReference: {fileID: 0}
     - target: {fileID: 2165910440899462297, guid: 037ddea4908762444a0f244cd928e5e2, type: 3}
       propertyPath: m_Name

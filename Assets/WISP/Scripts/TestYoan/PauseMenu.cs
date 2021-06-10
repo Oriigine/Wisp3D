@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField]
@@ -10,7 +11,7 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField]
     private XboxMapping m_XboxMapping;
-
+ 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape) || m_XboxMapping.menuButton)
