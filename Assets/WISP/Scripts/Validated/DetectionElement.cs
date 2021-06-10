@@ -63,9 +63,6 @@ public class DetectionElement : MonoBehaviour
         {
 
             m_Time = 0;
-
-
-
             // si le flash n'est pas déjà activé
             if (m_FlashActivated == false)
             {
