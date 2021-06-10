@@ -61,18 +61,16 @@ public class DetectionElement : MonoBehaviour
         // lorsque j'appuie sur click gauche et que m_Counter est nul
         if (Input.GetButton("Fire1") || m_XboxMapping.InputBool && m_Counter <= 0)
         {
-
             m_Time = 0;
 
-
+            if (m_Counter <= 0.1)
+            {
+                SoundManager.PlaySound(SoundManager.SoundEnum.PlayerFlash);
+            }
 
             // si le flash n'est pas déjà activé
             if (m_FlashActivated == false)
             {
-                if(m_Counter <= 0.1)
-                {
-                    SoundManager.PlaySound(SoundManager.SoundEnum.PlayerFlash);
-                }
                 Debug.Log("StartCor");
                 // je démarre la coroutine FlahingIn qui aggrandit la range de la light (le flash s'active)
                 StartCoroutine(FlashingIn(l_FlashParam));

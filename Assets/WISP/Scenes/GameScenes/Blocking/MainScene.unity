@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 1481.7754, g: 1835.8867, b: 2430.4492, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2163,7 +2163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 461118593867707874, guid: 09e0f2543ab678042a3dab98929464e7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09e0f2543ab678042a3dab98929464e7, type: 3}
@@ -3987,6 +3987,10 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 9859e021a562f05438f8af5c9d7a2794, type: 3}
   - sound: 3
     audioClip: {fileID: 8300000, guid: dc92492b823264e4abcda851c2c540f5, type: 3}
+  - sound: 0
+    audioClip: {fileID: 8300000, guid: 411a8a314fe973a44bbc8eff43e3bd3a, type: 3}
+  - sound: 2
+    audioClip: {fileID: 8300000, guid: 775fef8d538a06a42ae8094d3458ccf3, type: 3}
 --- !u!4 &963068708
 Transform:
   m_ObjectHideFlags: 0

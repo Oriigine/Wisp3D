@@ -13,6 +13,8 @@ public class SoundAssets : MonoBehaviour
             _i = this;
         else
             Destroy(this);
+
+        SoundManager.InitializeTimers();
     }
 
     public static SoundAssets i
