@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-
 
 public class PauseMenu : MonoBehaviour
 {
@@ -11,7 +11,10 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField]
     private XboxMapping m_XboxMapping;
- 
+
+    [SerializeField]
+    GameObject m_PauseFirstButton;
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape) || m_XboxMapping.menuButton)
