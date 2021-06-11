@@ -37,13 +37,13 @@ public class ActiveLightTrigger : MonoBehaviour
             SoundManager.PlaySound(SoundManager.SoundEnum.LanternTrigger);
         }
     }
-    private void Update()
-    {
-        if (m_Interact.IsActive)
-        {
-            SoundManager.PlaySound(SoundManager.SoundEnum.LanternBurning);
-        }
-    }
+    //private void Update()
+    //{
+    //    if (m_Interact.IsActive)
+    //    {
+    //        SoundManager.PlaySound(SoundManager.SoundEnum.LanternBurning);
+    //    }
+    //}
 
 
     //public bool LightActivaded

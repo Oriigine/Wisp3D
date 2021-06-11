@@ -26,19 +26,19 @@ public static class SoundManager
         soundTimers[SoundEnum.PlayerMove] = 0f;
     }
 
-    public static void PlaySound3d(SoundEnum sound, Vector3 position)
-    {
-        if (CanPlaySound(sound))
-        {
-            GameObject soundGameObject = new GameObject("Sound");
-            soundGameObject.transform.position = position;
-            AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
-            audioSource.clip = GetAudioClip(sound);
-            audioSource.Play();
+    //public static void PlaySound3d(SoundEnum sound, Vector3 position)
+    //{
+    //    if (CanPlaySound(sound))
+    //    {
+    //        GameObject soundGameObject = new GameObject("Sound");
+    //        soundGameObject.transform.position = position;
+    //        AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+    //        audioSource.clip = GetAudioClip(sound);
+    //        audioSource.Play();
 
-            Object.Destroy(soundGameObject, audioSource.clip.length);
-        }
-    }
+    //        Object.Destroy(soundGameObject, audioSource.clip.length);
+    //    }
+    //}
 
     public static void PlaySound(SoundEnum sound)
     {
@@ -49,7 +49,10 @@ public static class SoundManager
                 PlayOnceGameObject = new GameObject("Play Once Sound");
                 PlayOnceAudioSource = PlayOnceGameObject.AddComponent<AudioSource>();
             }
-            PlayOnceAudioSource.PlayOneShot(GetAudioClip(sound));
+            else
+            {
+                PlayOnceAudioSource.PlayOneShot(GetAudioClip(sound));
+            }
         }
     }
 
@@ -78,25 +81,25 @@ public static class SoundManager
                 {
                     return true;
                 }
-            case SoundEnum.LanternBurning:
-                if (soundTimers.ContainsKey(sound))
-                {
-                    float lastTimePlayed = soundTimers[sound];
-                    float playerMoveTimer = 1.0f;
-                    if (lastTimePlayed + playerMoveTimer < Time.time)
-                    {
-                        soundTimers[sound] = Time.time;
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return true;
-                }
+            //case SoundEnum.LanternBurning:
+            //    if (soundTimers.ContainsKey(sound))
+            //    {
+            //        float lastTimePlayed = soundTimers[sound];
+            //        float playerMoveTimer = 1.0f;
+            //        if (lastTimePlayed + playerMoveTimer < Time.time)
+            //        {
+            //            soundTimers[sound] = Time.time;
+            //            return true;
+            //        }
+            //        else
+            //        {
+            //            return false;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        return true;
+            //    }
         }
     }
 
