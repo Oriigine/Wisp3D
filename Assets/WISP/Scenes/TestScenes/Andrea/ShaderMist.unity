@@ -267,75 +267,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1069281668
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.8340065
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4.184798
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2222.01
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 334.58716
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 650.4827
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 329d7794bc8ca8144978a238d22bd391, type: 2}
-    - target: {fileID: 919132149155446097, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
-      propertyPath: m_Name
-      value: plane_test_andreea2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 902006dbdeaa3e54ea7c65f70795fc81, type: 3}
 --- !u!1 &1378427996
 GameObject:
   m_ObjectHideFlags: 0
@@ -5815,3 +5746,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 503a108fe8d64e64cbdf6e33f744bf27, type: 3}
+--- !u!1001 &6128045147876524148
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5945184601352312347, guid: 4305258785196074782b25d0fb7fdba3, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945184601352312347, guid: 4305258785196074782b25d0fb7fdba3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2222.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945184601352312347, guid: 4305258785196074782b25d0fb7fdba3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 334.58716
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945184601352312347, guid: 4305258785196074782b25d0fb7fdba3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 650.4827
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945184601352312347, guid: 4305258785196074782b25d0fb7fdba3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945184601352312347, guid: 4305258785196074782b25d0fb7fdba3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945184601352312347, guid: 4305258785196074782b25d0fb7fdba3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945184601352312347, guid: 4305258785196074782b25d0fb7fdba3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945184601352312347, guid: 4305258785196074782b25d0fb7fdba3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945184601352312347, guid: 4305258785196074782b25d0fb7fdba3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945184601352312347, guid: 4305258785196074782b25d0fb7fdba3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6470081988044410017, guid: 4305258785196074782b25d0fb7fdba3, type: 3}
+      propertyPath: m_Name
+      value: plane_test_andreea2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4305258785196074782b25d0fb7fdba3, type: 3}

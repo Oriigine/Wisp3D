@@ -59,7 +59,7 @@ public class DetectionElement : MonoBehaviour
 
         
         // lorsque j'appuie sur click gauche et que m_Counter est nul
-        if (Input.GetButton("Fire1") || m_XboxMapping.InputBool && m_Counter <= 0)
+        if (Input.GetButtonDown("Fire1") || m_XboxMapping.InputBool && m_Counter <= 0)
         {
 
             m_Time = 0;
@@ -94,7 +94,7 @@ public class DetectionElement : MonoBehaviour
             }
         }
 
-        if (m_FlashDuration <= 0)
+        if (m_FlashDuration <= 0 && Input.GetButtonUp("Fire1") || m_XboxMapping.CInputBool)
         {
             StartCoroutine(FlashingOut(l_FlashParam));
         }
