@@ -66,6 +66,11 @@ public class Bis_Mondhor_PlayerController : MonoBehaviour
             HorizontalSpeed = MaxSpeed * -1;
         }
 
+        if(HorizontalSpeed != 0 && VerticalSpeed != -0.1)
+        {
+            SoundManager.PlaySound(SoundManager.SoundEnum.PlayerMove);
+        }
+
 
 
         //Mémoire tampon du GetAxis
@@ -144,8 +149,6 @@ public class Bis_Mondhor_PlayerController : MonoBehaviour
 
         #endregion DETECTION TOUCHES
 
-
-
         #region TOUCHES PRESSEES
 
         if (D_Pressed == true)
@@ -202,7 +205,7 @@ public class Bis_Mondhor_PlayerController : MonoBehaviour
         }
         m_Rigidbody.velocity = new Vector3(HorizontalSpeed, VerticalSpeed, 0);
 
-        if (D_Pressed == false && Q_Pressed == false && HorizontalSpeed >= -0.2 && HorizontalSpeed <= 0.2)
+        if (D_Pressed == false && Q_Pressed == false && HorizontalSpeed >= -0.3 && HorizontalSpeed <= 0.3)
         {
             HorizontalSpeed = 0;
         }
@@ -223,7 +226,7 @@ public class Bis_Mondhor_PlayerController : MonoBehaviour
             }
             m_Rigidbody.velocity = new Vector3(HorizontalSpeed, VerticalSpeed, 0);
 
-            if (Z_Pressed == false && S_Pressed == false && VerticalSpeed >= -0.2 && VerticalSpeed <= 0.2)
+            if (Z_Pressed == false && S_Pressed == false && VerticalSpeed >= -0.3 && VerticalSpeed <= 0.3)
             {
                 VerticalStopped = true;
             }
