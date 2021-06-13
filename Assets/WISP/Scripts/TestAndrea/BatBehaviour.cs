@@ -36,6 +36,9 @@ public class BatBehaviour : MonoBehaviour
     private LayerMask m_ObstacleLayer;
 
     [SerializeField]
+    private LayerMask m_TorchLayer;
+
+    [SerializeField]
     private Collider[] m_InteractibleDetecte;
 
 
@@ -80,6 +83,7 @@ public class BatBehaviour : MonoBehaviour
         if (m_EnnemiState == BatStates.Rush )
         {
             transform.position = Vector3.MoveTowards(transform.position, m_TargetPosition, l_Step);
+            transform.LookAt(m_TargetPosition);
         }
 
         //// Si la position de l'ennemi a atteind celle du player et qu'il est en etat "Rush" alors on lance l'etat "comeback"
@@ -151,7 +155,7 @@ public class BatBehaviour : MonoBehaviour
     void LightDetectionPos()
     {
         // Retourne tout les GPE présent dans la zone de détection
-        m_InteractibleDetecte = Physics.OverlapSphere(transform.position, m_LightDetectionRange, m_LayerToDetect);
+        m_InteractibleDetecte = Physics.OverlapSphere(transform.position, m_LightDetectionRange, m_TorchLayer);
         float l_Step = m_Speed * Time.deltaTime;
 
 

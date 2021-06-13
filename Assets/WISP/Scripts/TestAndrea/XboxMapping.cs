@@ -8,6 +8,11 @@ public class XboxMapping : MonoBehaviour
     public bool bButton;
     public bool xButton;
     public bool yButton;
+
+    public bool CaButton;
+    public bool CbButton;
+    public bool CxButton;
+    public bool CyButton;
     //public bool leftBumper;
     //public bool rightBumper;
     public bool menuButton;
@@ -26,6 +31,7 @@ public class XboxMapping : MonoBehaviour
 
 	public bool RTbool = false;
     public bool InputBool = false;
+    public bool CInputBool = false;
 
 	void Update()
 	{
@@ -33,6 +39,12 @@ public class XboxMapping : MonoBehaviour
         bButton = Input.GetButton("B Button");
         xButton = Input.GetButton("X Button");
         yButton = Input.GetButton("Y Button");
+
+
+        CaButton = Input.GetButtonUp("A Button");
+        CbButton = Input.GetButtonUp("B Button");
+        CxButton = Input.GetButtonUp("X Button");
+        CyButton = Input.GetButtonUp("Y Button");
         //leftBumper = Input.GetButton("Left Bumper");
         //rightBumper = Input.GetButton("Right Bumper");
         menuButton = Input.GetButton("Menu Button");
@@ -46,22 +58,28 @@ public class XboxMapping : MonoBehaviour
         //leftTrigger = Input.GetAxis("Left Trigger");
         rightTrigger = Input.GetAxis("RT");
 
-		if(Input.GetAxisRaw("RT") !=0)
+		if(Input.GetAxisRaw("RT") !=0 || aButton || bButton || xButton || yButton)
         {
 			if(InputBool == false)
             {
 				InputBool = true;
+                CInputBool = false;
 
-			}
-		}
-		else if (Input.GetAxisRaw("RT") == 0)
+            }
+        }
+		else if (Input.GetAxisRaw("RT") == 0 || CaButton || CbButton || CxButton || CyButton )
         {
-            InputBool = false;
+            if(InputBool)
+            {
+                InputBool = false;
+                CInputBool = true;
+
+            }
+       
+
         }
 
-        if( aButton || bButton || xButton || yButton)
-        {
-            InputBool = true;
-        }
+     
+      
 	}
 }
