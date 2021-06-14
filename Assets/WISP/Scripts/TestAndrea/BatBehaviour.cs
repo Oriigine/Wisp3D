@@ -83,7 +83,7 @@ public class BatBehaviour : MonoBehaviour
         if (m_EnnemiState == BatStates.Rush )
         {
             transform.position = Vector3.MoveTowards(transform.position, m_TargetPosition, l_Step);
-            transform.LookAt(m_TargetPosition);
+            transform.LookAt(new Vector3(m_TargetPosition.x,m_TargetPosition.y + 90,m_TargetPosition.z));
         }
 
         //// Si la position de l'ennemi a atteind celle du player et qu'il est en etat "Rush" alors on lance l'etat "comeback"
