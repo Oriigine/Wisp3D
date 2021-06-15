@@ -12,9 +12,12 @@ public static class SoundManager
         LanternTrigger,
         BatOpeningEyes,
         BatCharging,
+        BackgroundMusic,
         
     }
 
+
+    private static Vector3 gameObjectPosition;
     private static Dictionary<SoundEnum, float> soundTimers;
 
     private static GameObject PlayOnceGameObject;
@@ -30,14 +33,15 @@ public static class SoundManager
     {
         if (CanPlaySound(sound))
         {
-            GameObject soundGameObject = new GameObject("Sound");
-            soundGameObject.transform.position = position;
-            AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+            GameObject soundGameObject3D = new GameObject("3D Sound : " + sound);
+            soundGameObject3D.transform.position = position;
+            AudioSource audioSource = soundGameObject3D.AddComponent<AudioSource>();
             audioSource.clip = GetAudioClip(sound);
-            audioSource.Play();
+            audioSource.Play();       
 
-            Object.Destroy(soundGameObject, audioSource.clip.length);
+            Object.Destroy(soundGameObject3D, audioSource.clip.length);
         }
+        
     }
 
     public static void PlaySound(SoundEnum sound)
@@ -46,10 +50,13 @@ public static class SoundManager
         {
             if(PlayOnceGameObject == null)
             {
-                PlayOnceGameObject = new GameObject("Play Once Sound");
+                PlayOnceGameObject = new GameObject("Play Once Sound : " + sound);
                 PlayOnceAudioSource = PlayOnceGameObject.AddComponent<AudioSource>();
             }
-            PlayOnceAudioSource.PlayOneShot(GetAudioClip(sound));
+            else
+            {
+                PlayOnceAudioSource.PlayOneShot(GetAudioClip(sound));
+            }
         }
     }
 
@@ -78,11 +85,11 @@ public static class SoundManager
                 {
                     return true;
                 }
-            case SoundEnum.LanternBurning:
+            case SoundEnum.BackgroundMusic:
                 if (soundTimers.ContainsKey(sound))
                 {
                     float lastTimePlayed = soundTimers[sound];
-                    float playerMoveTimer = 1.0f;
+                    float playerMoveTimer = 97.545f;
                     if (lastTimePlayed + playerMoveTimer < Time.time)
                     {
                         soundTimers[sound] = Time.time;
@@ -97,6 +104,25 @@ public static class SoundManager
                 {
                     return true;
                 }
+                //case SoundEnum.LanternBurning:
+                //    if (soundTimers.ContainsKey(sound))
+                //    {
+                //        float lastTimePlayed = soundTimers[sound];
+                //        float playerMoveTimer = 1.0f;
+                //        if (lastTimePlayed + playerMoveTimer < Time.time)
+                //        {
+                //            soundTimers[sound] = Time.time;
+                //            return true;
+                //        }
+                //        else
+                //        {
+                //            return false;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        return true;
+                //    }
         }
     }
 
