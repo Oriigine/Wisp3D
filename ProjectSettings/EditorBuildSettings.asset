@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/WISP/Scenes/GameScenes/Blocking/MainScene.unity
+    path: Assets/WISP/Scenes/GameScenes/Blocking/Grayblocking.unity
     guid: ab68bdeebe2e41b4bb5ab23d0c1dea8f
   - enabled: 1
     path: Assets/WISP/Scenes/GameScenes/Menus/MainMenu.unity
