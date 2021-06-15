@@ -18,6 +18,7 @@ public class MainMenu : MonoBehaviour
 
 
         SceneManager.LoadScene("MainScene");
+        SoundManager.PlaySound(SoundManager.SoundEnum.BackgroundMusic);
         Debug.Log("Go to the scene game");
 
     }
