@@ -66,10 +66,10 @@ public class Bis_Mondhor_PlayerController : MonoBehaviour
             HorizontalSpeed = MaxSpeed * -1;
         }
 
-        if(HorizontalSpeed != 0 && VerticalSpeed != -0.1)
-        {
-            SoundManager.PlaySound(SoundManager.SoundEnum.PlayerMove);
-        }
+        //if(HorizontalSpeed != 0 && VerticalSpeed != -0.1)
+        //{
+        //    SoundManager.PlaySound(SoundManager.SoundEnum.PlayerMove);
+        //}
 
 
 
