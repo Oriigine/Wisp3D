@@ -13,6 +13,8 @@ public class DetectionElement : MonoBehaviour
     public LayerMask m_Ground;
     public LayerMask m_EnemyLayer;
 
+    public Vector3 position;
+
     //Variables concernant les lights
     [SerializeField]
     private GameObject m_FlashLight;
@@ -61,13 +63,12 @@ public class DetectionElement : MonoBehaviour
         // lorsque j'appuie sur click gauche et que m_Counter est nul
         if (Input.GetButtonDown("Fire1") || m_XboxMapping.InputBool && m_Counter <= 0)
         {
-
             m_Time = 0;
             // si le flash n'est pas déjà activé
             if (m_FlashActivated == false)
             {
                 if(m_Counter <= 0.1)
-                {
+                { 
                     SoundManager.PlaySound(SoundManager.SoundEnum.PlayerFlash);
                 }
                 Debug.Log("StartCor");
