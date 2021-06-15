@@ -21,6 +21,7 @@ public class DetectionElement : MonoBehaviour
 
     private Light l_FlashParam;
 
+    [SerializeField]
     private bool m_FlashActivated = false;
     [SerializeField]
     private float m_TimeToFlashOn = 10;
@@ -67,10 +68,10 @@ public class DetectionElement : MonoBehaviour
             // si le flash n'est pas déjà activé
             if (m_FlashActivated == false)
             {
-                if(m_Counter <= 0.1)
-                { 
-                    SoundManager.PlaySound(SoundManager.SoundEnum.PlayerFlash);
-                }
+                //if(m_Counter <= 0.1)
+                //{ 
+                //    SoundManager.PlaySound(SoundManager.SoundEnum.PlayerFlash);
+                //}
                 Debug.Log("StartCor");
                 // je démarre la coroutine FlahingIn qui aggrandit la range de la light (le flash s'active)
                 StartCoroutine(FlashingIn(l_FlashParam));
@@ -220,6 +221,7 @@ public class DetectionElement : MonoBehaviour
                 // On effectue un lerp entre valeur min et max des inner et outer range de la light
 
                 lightToFade.range = Mathf.Lerp(m_MinRange, m_MaxRange, m_Time);
+                Debug.Log("ca flash");
 
                 // le flash est activé
 
@@ -249,6 +251,7 @@ public class DetectionElement : MonoBehaviour
                 // On effectue un lerp entre valeur max et min des inner et outer range de la light
 
                 lightToFade.range = Mathf.Lerp(m_MaxRange, m_MinRange, m_Time);
+                Debug.Log("ca d flash");
 
                 // Le flash est désactivé
                 yield return m_FlashActivated = false;
