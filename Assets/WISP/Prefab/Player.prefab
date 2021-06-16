@@ -233,7 +233,6 @@ GameObject:
   - component: {fileID: 3106782980784422441}
   - component: {fileID: 6613756451935723258}
   - component: {fileID: 560653192801515630}
-  - component: {fileID: 189229926}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -377,6 +376,7 @@ MonoBehaviour:
   m_EnemyLayer:
     serializedVersion: 2
     m_Bits: 32768
+  position: {x: 0, y: 0, z: 0}
   m_FlashLight: {fileID: 594226367106001657}
   m_TimeToFlashOn: 2
   m_TimeToFlashOff: 0
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Counter: 0
   m_FlashDuration: 0
   m_Bats: []
-  m_XboxMapping: {fileID: 189229926}
+  m_XboxMapping: {fileID: 0}
 --- !u!114 &6613756451935723258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,31 +401,6 @@ MonoBehaviour:
   StartPos: {x: 0, y: 0, z: 0}
   m_Checkpoint: {fileID: 0}
 --- !u!114 &560653192801515630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658944733157734642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51de44a9d2c44ff4189590f71703ae88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aButton: 0
-  bButton: 0
-  xButton: 0
-  yButton: 0
-  CaButton: 0
-  CbButton: 0
-  CxButton: 0
-  CyButton: 0
-  menuButton: 0
-  rightTrigger: 0
-  RTbool: 0
-  InputBool: 0
-  CInputBool: 0
---- !u!114 &189229926
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
