@@ -7,7 +7,7 @@ public class BatBehaviour : MonoBehaviour
     [SerializeField]
     private float m_PlayerDetectionRange = 30;
 
-   
+    public Vector3 position;
 
     [SerializeField]
     private float m_LightDetectionRange = 30;
@@ -64,6 +64,7 @@ public class BatBehaviour : MonoBehaviour
         {
 
             m_EnnemiState = BatStates.OpenedEyes;
+            SoundManager.PlaySound3d(SoundManager.SoundEnum.BatOpeningEyes, position);
         }
 
         //// si l'ennemi à les yeux ouverts et que le joueur l'éclaire avec le flash, l'ennemi stocke la position du joueur et se met en mode "rush"
