@@ -14,6 +14,7 @@ public static class SoundManager
         BatCharging,
         BackgroundMusic,
         DoorOpening,
+        LightDetector
         
     }
 
