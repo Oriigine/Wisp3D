@@ -76,6 +76,7 @@ public class BatBehaviour : MonoBehaviour
             m_TargetPosition = m_Player.position;
             Debug.Log(m_TargetPosition);
             m_EnnemiState = BatStates.Rush;
+            SoundManager.PlaySound3d(SoundManager.SoundEnum.BatCharging, position);
 
         }
 
