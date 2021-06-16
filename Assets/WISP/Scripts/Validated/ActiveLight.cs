@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ActiveLight : MonoBehaviour
 {
+    public Vector3 position;
+
     [SerializeField]
     public GameObject m_Light;
   
@@ -32,6 +34,7 @@ public class ActiveLight : MonoBehaviour
             m_Light.SetActive(true);
             IsAlreadyActive = true;
             m_Interractible.IsActive = true;
+            SoundManager.PlaySound3d(SoundManager.SoundEnum.LightDetector, position);
 
         }
         //Sinon si il n'est pas détécté ou qu'il n'est pas déja acif
