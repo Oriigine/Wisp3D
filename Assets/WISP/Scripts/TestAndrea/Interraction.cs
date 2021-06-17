@@ -13,6 +13,8 @@ public class Interraction : MonoBehaviour
     [SerializeField]
     private bool m_IsOpen = false;
 
+    public Vector3 position;
+
     private void Update()
     {
         Activationconditon();
@@ -42,6 +44,7 @@ public class Interraction : MonoBehaviour
         {
             //Si flag est true on ouvre la porte :)
             OpenDoor();
+            SoundManager.PlaySound3d(SoundManager.SoundEnum.DoorOpening, position);
             m_IsOpen = true;
         }
     }

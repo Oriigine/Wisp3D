@@ -13,6 +13,8 @@ public static class SoundManager
         BatOpeningEyes,
         BatCharging,
         BackgroundMusic,
+        DoorOpening,
+        LightDetector
         
     }
 
