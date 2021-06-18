@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ActiveLight : MonoBehaviour
 {
+    public Vector3 position;
+
     [SerializeField]
     public GameObject m_Light;
   
@@ -29,9 +31,14 @@ public class ActiveLight : MonoBehaviour
         //Et on passe son booléen de son "m_Interractible" à true
         if (m_Detect.IsDetected)
         {
+            if (IsAlreadyActive != true)
+            {
+                SoundManager.PlaySound3d(SoundManager.SoundEnum.LightDetector, position);
+            }
             m_Light.SetActive(true);
             IsAlreadyActive = true;
             m_Interractible.IsActive = true;
+
 
         }
         //Sinon si il n'est pas détécté ou qu'il n'est pas déja acif

@@ -8,6 +8,8 @@ public class ActiveLightTrigger : MonoBehaviour
     [SerializeField]
     private GameObject m_LightToActivate = null;
 
+    public Vector3 position;
+
     [SerializeField]
     private Interractible m_Interact;
 
@@ -34,7 +36,7 @@ public class ActiveLightTrigger : MonoBehaviour
             m_Interact.IsActive = true;
             //On active la light qu'on veut activer
             m_LightToActivate.SetActive(true);
-            SoundManager.PlaySound(SoundManager.SoundEnum.LanternTrigger);
+            SoundManager.PlaySound3d(SoundManager.SoundEnum.LanternTrigger, position);
         }
     }
     //private void Update()
