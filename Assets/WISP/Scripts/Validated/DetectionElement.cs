@@ -45,8 +45,11 @@ public class DetectionElement : MonoBehaviour
     [SerializeField]
     Collider[] m_Bats;
 
+    [SerializeField]
+    Collider[] m_InteractibleDetecte;
 
-   [SerializeField]
+
+    [SerializeField]
    private XboxMapping m_XboxMapping;
 
 
@@ -169,14 +172,14 @@ public class DetectionElement : MonoBehaviour
     IEnumerator Detection()
     {
         // Retourne tout les GPE présent dans la zone de détection
-        Collider[] l_InteractibleDetecte = Physics.OverlapSphere(transform.position, m_DetectionRange, m_LayerToDetect);
+        m_InteractibleDetecte = Physics.OverlapSphere(transform.position, m_DetectionRange, m_LayerToDetect);
 
         // On vérifie si le tableau n'est pas vide
-        if (l_InteractibleDetecte.Length > 0)
+        if (m_InteractibleDetecte.Length > 0)
         {
             Debug.Log("y a tablo");
             // Pour chaque élément (collider2D) dans ce tableau
-            foreach (Collider item in l_InteractibleDetecte)
+            foreach (Collider item in m_InteractibleDetecte)
             {
                 // On envoie un linecast dans sa direction
                 RaycastHit l_TestCollision;
