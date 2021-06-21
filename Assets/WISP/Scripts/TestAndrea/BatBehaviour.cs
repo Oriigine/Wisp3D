@@ -39,7 +39,10 @@ public class BatBehaviour : MonoBehaviour
     private LayerMask m_TorchLayer;
 
     [SerializeField]
-    private Collider[] m_InteractibleDetecte;
+    private Collider[] m_InteractibleDetecte;   
+    
+    [SerializeField]
+    private Animator m_BatAnimator;
 
 
     [SerializeField]
@@ -47,7 +50,7 @@ public class BatBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        m_BatAnimator.SetBool("Idle", true);
         m_StaticPosition = transform.position;
     }
 
@@ -62,6 +65,8 @@ public class BatBehaviour : MonoBehaviour
 
         if (m_EnnemiState == BatStates.Sleepy && Vector3.Distance(transform.position, m_Player.position) < m_PlayerDetectionRange)
         {
+            m_BatAnimator.SetBool("Idle", false);
+            m_BatAnimator.SetBool("Awake", true);
 
             m_EnnemiState = BatStates.OpenedEyes;
             SoundManager.PlaySound3d(SoundManager.SoundEnum.BatOpeningEyes, position);
@@ -72,6 +77,9 @@ public class BatBehaviour : MonoBehaviour
         if (m_EnnemiState == BatStates.OpenedEyes && m_Detect.BatIsDetected == true)
 
         {
+            m_BatAnimator.SetBool("Awake", false);
+            m_BatAnimator.SetBool("RushA", true);
+
 
             m_TargetPosition = m_Player.position;
             Debug.Log(m_TargetPosition);
@@ -92,6 +100,10 @@ public class BatBehaviour : MonoBehaviour
 
         if (transform.position == m_TargetPosition && m_EnnemiState == BatStates.Rush)
         {
+            m_BatAnimator.SetBool("RushA", false);
+            m_BatAnimator.SetBool("HitTarget", true);
+
+
             m_EnnemiState = BatStates.ComeBack;
         }
 
@@ -99,6 +111,9 @@ public class BatBehaviour : MonoBehaviour
 
         if (m_EnnemiState == BatStates.ComeBack)
         {
+            m_BatAnimator.SetBool("Return", false);
+            m_BatAnimator.SetBool("RushA", true);
+
 
             transform.position = Vector3.MoveTowards(transform.position, m_StaticPosition, l_Step);
         }
@@ -107,6 +122,10 @@ public class BatBehaviour : MonoBehaviour
 
         if (transform.position == m_StaticPosition && m_EnnemiState == BatStates.ComeBack)
         {
+            m_BatAnimator.SetBool("RushA", false);
+            m_BatAnimator.SetBool("HitInitialPos", true);
+
+
             m_EnnemiState = BatStates.OpenedEyes;
         }
 
@@ -142,12 +161,16 @@ public class BatBehaviour : MonoBehaviour
 
         if(m_EnnemiState == BatStates.Rush && collision.gameObject.layer != m_LayerToDetect)
         {
+
             while(l_Timer > 0)
             {
                 l_Timer -= Time.deltaTime;
             }
             if(l_Timer <= 0)
             {
+                m_BatAnimator.SetBool("RushA", false);
+                m_BatAnimator.SetBool("HitWall", true);
+
                 m_EnnemiState = BatStates.ComeBack;
                 l_Timer = 10f;
             }
