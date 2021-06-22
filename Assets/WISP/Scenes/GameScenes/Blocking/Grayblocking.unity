@@ -2128,6 +2128,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4305258785196074782b25d0fb7fdba3, type: 3}
+--- !u!114 &436159914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 560653192801515630, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
+  m_PrefabInstance: {fileID: 1799138555}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51de44a9d2c44ff4189590f71703ae88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &436521282
 GameObject:
   m_ObjectHideFlags: 0
@@ -7898,6 +7909,7 @@ PrefabInstance:
       propertyPath: m_XboxMapping
       value: 
       objectReference: {fileID: 1662656672}
+      objectReference: {fileID: 436159914}
     - target: {fileID: 3811128569124581371, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -8728,7 +8740,7 @@ PrefabInstance:
     - target: {fileID: 284645358833407813, guid: b589a20f7d30b6c4789c13de749bc2a7, type: 3}
       propertyPath: m_XboxMapping
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 436159914}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b589a20f7d30b6c4789c13de749bc2a7, type: 3}
 --- !u!4 &2001532408 stripped
