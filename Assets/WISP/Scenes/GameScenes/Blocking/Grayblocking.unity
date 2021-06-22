@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 1481.7754, g: 1835.8867, b: 2430.4492, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3255,6 +3255,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2165910440899462293, guid: 037ddea4908762444a0f244cd928e5e2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165910440899462293, guid: 037ddea4908762444a0f244cd928e5e2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165910440899462293, guid: 037ddea4908762444a0f244cd928e5e2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165910440899462293, guid: 037ddea4908762444a0f244cd928e5e2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 71.1
       objectReference: {fileID: 0}
@@ -3299,6 +3311,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 704345354}
     - target: {fileID: 2165910440899462295, guid: 037ddea4908762444a0f244cd928e5e2, type: 3}
+      propertyPath: m_BatAnimator
+      value: 
+      objectReference: {fileID: 1359997253}
+    - target: {fileID: 2165910440899462295, guid: 037ddea4908762444a0f244cd928e5e2, type: 3}
       propertyPath: m_LayerToDetect.m_Bits
       value: 65537
       objectReference: {fileID: 0}
@@ -3306,7 +3322,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ennemi
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8668565905364594901, guid: 037ddea4908762444a0f244cd928e5e2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 037ddea4908762444a0f244cd928e5e2, type: 3}
 --- !u!1 &685676491
 GameObject:
@@ -5110,7 +5127,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!1001 &1311176931
 PrefabInstance:
@@ -5883,6 +5900,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dd24476fd0d931419bf92e3ca94d267, type: 3}
+--- !u!1 &1359997251 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8495146838168062929, guid: 037ddea4908762444a0f244cd928e5e2, type: 3}
+  m_PrefabInstance: {fileID: 657940145}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1359997253
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359997251}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cd4f006a75cd2324383d54c257b6c95d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1376854475
 GameObject:
   m_ObjectHideFlags: 0
@@ -6929,6 +6970,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651704096}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1662656672 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 560653192801515630, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
+  m_PrefabInstance: {fileID: 1799138555}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51de44a9d2c44ff4189590f71703ae88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1662981974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9133304173163353895, guid: 1dd24476fd0d931419bf92e3ca94d267, type: 3}
@@ -7845,7 +7897,7 @@ PrefabInstance:
     - target: {fileID: 3106782980784422441, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
       propertyPath: m_XboxMapping
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1662656672}
     - target: {fileID: 3811128569124581371, guid: 8037af0d238afc44dbf87776988c28ea, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
