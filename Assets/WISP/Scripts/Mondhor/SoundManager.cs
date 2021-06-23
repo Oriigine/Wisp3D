@@ -41,7 +41,7 @@ public static class SoundManager
             audioSource.clip = GetAudioClip(sound);
             audioSource.Play();       
 
-            Object.Destroy(soundGameObject3D, audioSource.clip.length);
+            //Object.Destroy(soundGameObject3D, audioSource.clip.length);
         }
         
     }
