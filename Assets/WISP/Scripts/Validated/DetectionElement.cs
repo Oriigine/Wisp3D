@@ -18,8 +18,11 @@ public class DetectionElement : MonoBehaviour
     //Variables concernant les lights
     [SerializeField]
     private GameObject m_FlashLight;
+    [SerializeField]
+    private GameObject m_FlashLightFond;
 
     private Light l_FlashParam;
+    private Light l_FlashParamFond;
 
     [SerializeField]
     private bool m_FlashActivated = false;
@@ -58,6 +61,7 @@ public class DetectionElement : MonoBehaviour
         //j'assigne le component light2d de ma light à une variable l_FlashParam
 
         l_FlashParam = m_FlashLight.GetComponent<Light>();
+        l_FlashParamFond = m_FlashLightFond.GetComponent<Light>();
     }
 
     void Update()
@@ -77,7 +81,7 @@ public class DetectionElement : MonoBehaviour
                 //}
                 Debug.Log("StartCor");
                 // je démarre la coroutine FlahingIn qui aggrandit la range de la light (le flash s'active)
-                StartCoroutine(FlashingIn(l_FlashParam));
+                StartCoroutine(FlashingIn(l_FlashParam, l_FlashParamFond));
                 m_FlashDuration += 0.2f;
 
             }
@@ -101,7 +105,7 @@ public class DetectionElement : MonoBehaviour
 
         if (m_FlashDuration <= 0 && Input.GetButtonUp("Fire1") || m_XboxMapping.CInputBool)
         {
-            StartCoroutine(FlashingOut(l_FlashParam));
+            StartCoroutine(FlashingOut(l_FlashParam, l_FlashParamFond));
         }
 
         // si le flash est déjà activé
@@ -204,7 +208,7 @@ public class DetectionElement : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator FlashingIn(Light lightToFade)
+    IEnumerator FlashingIn(Light lightToFade, Light lightToFadeFond)
     {
         // le flash n'est pas activé
         if (m_FlashActivated == false)
@@ -224,6 +228,7 @@ public class DetectionElement : MonoBehaviour
                 // On effectue un lerp entre valeur min et max des inner et outer range de la light
 
                 lightToFade.range = Mathf.Lerp(m_MinRange, m_MaxRange, m_Time);
+                lightToFadeFond.range = Mathf.Lerp(m_MinRange, m_MaxRange, m_Time);
                 Debug.Log("ca flash");
 
                 // le flash est activé
@@ -234,7 +239,7 @@ public class DetectionElement : MonoBehaviour
         }
     }
 
-    IEnumerator FlashingOut(Light lightToFade)
+    IEnumerator FlashingOut(Light lightToFade, Light lightToFadeFond)
     {
         // si le flash n'est pas activé
         if (m_FlashActivated == true)
@@ -254,6 +259,7 @@ public class DetectionElement : MonoBehaviour
                 // On effectue un lerp entre valeur max et min des inner et outer range de la light
 
                 lightToFade.range = Mathf.Lerp(m_MaxRange, m_MinRange, m_Time);
+                lightToFadeFond.range = Mathf.Lerp(m_MaxRange, m_MinRange, m_Time);
                 Debug.Log("ca d flash");
 
                 // Le flash est désactivé
