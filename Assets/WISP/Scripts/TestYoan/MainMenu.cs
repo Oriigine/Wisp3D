@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(m_MainMenuFirstButton);
 
 
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MainGame");
         SoundManager.PlaySound(SoundManager.SoundEnum.BackgroundMusic);
         Debug.Log("Go to the scene game");
 

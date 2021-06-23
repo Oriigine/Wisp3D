@@ -15,13 +15,13 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     GameObject m_PauseFirstButton;
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape) || m_XboxMapping.menuButton)
-        {
-            Pause();
-        }
-    }
+    //private void Update()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.Escape) || m_XboxMapping.menuButton)
+    //    {
+    //        Pause();
+    //    }
+    //}
 
     public void Menu()
     {
@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MainGame");
         Debug.Log("Go to the scene game");
     }
 

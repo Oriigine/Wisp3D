@@ -50,7 +50,7 @@ public class BatBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_BatAnimator.SetBool("Idle", true);
+        //m_BatAnimator.SetBool("Idle", true);
         m_StaticPosition = transform.position;
     }
 
@@ -65,11 +65,11 @@ public class BatBehaviour : MonoBehaviour
 
         if (m_EnnemiState == BatStates.Sleepy && Vector3.Distance(transform.position, m_Player.position) < m_PlayerDetectionRange)
         {
-            m_BatAnimator.SetBool("Idle", false);
-            m_BatAnimator.SetBool("Awake", true);
+            m_BatAnimator.SetTrigger("Awake");
+
 
             m_EnnemiState = BatStates.OpenedEyes;
-            SoundManager.PlaySound3d(SoundManager.SoundEnum.BatOpeningEyes, position);
+            //SoundManager.PlaySound3d(SoundManager.SoundEnum.BatOpeningEyes, position);
         }
 
         //// si l'ennemi à les yeux ouverts et que le joueur l'éclaire avec le flash, l'ennemi stocke la position du joueur et se met en mode "rush"
@@ -77,14 +77,14 @@ public class BatBehaviour : MonoBehaviour
         if (m_EnnemiState == BatStates.OpenedEyes && m_Detect.BatIsDetected == true)
 
         {
-            m_BatAnimator.SetBool("Awake", false);
-            m_BatAnimator.SetBool("RushA", true);
+            m_BatAnimator.SetTrigger("RushA");
+
 
 
             m_TargetPosition = m_Player.position;
             Debug.Log(m_TargetPosition);
             m_EnnemiState = BatStates.Rush;
-            SoundManager.PlaySound3d(SoundManager.SoundEnum.BatCharging, position);
+            //SoundManager.PlaySound3d(SoundManager.SoundEnum.BatCharging, position);
 
         }
 
@@ -92,6 +92,8 @@ public class BatBehaviour : MonoBehaviour
 
         if (m_EnnemiState == BatStates.Rush )
         {
+
+       
             transform.position = Vector3.MoveTowards(transform.position, m_TargetPosition, l_Step);
             transform.LookAt(new Vector3(m_TargetPosition.x,m_TargetPosition.y + 90,m_TargetPosition.z));
         }
@@ -100,8 +102,8 @@ public class BatBehaviour : MonoBehaviour
 
         if (transform.position == m_TargetPosition && m_EnnemiState == BatStates.Rush)
         {
-            m_BatAnimator.SetBool("RushA", false);
-            m_BatAnimator.SetBool("HitTarget", true);
+
+            m_BatAnimator.SetTrigger("HitTarget");
 
 
             m_EnnemiState = BatStates.ComeBack;
@@ -111,8 +113,7 @@ public class BatBehaviour : MonoBehaviour
 
         if (m_EnnemiState == BatStates.ComeBack)
         {
-            m_BatAnimator.SetBool("Return", false);
-            m_BatAnimator.SetBool("RushA", true);
+          
 
 
             transform.position = Vector3.MoveTowards(transform.position, m_StaticPosition, l_Step);
@@ -122,8 +123,8 @@ public class BatBehaviour : MonoBehaviour
 
         if (transform.position == m_StaticPosition && m_EnnemiState == BatStates.ComeBack)
         {
-            m_BatAnimator.SetBool("RushA", false);
-            m_BatAnimator.SetBool("HitInitialPos", true);
+            m_BatAnimator.SetTrigger("Return");
+           
 
 
             m_EnnemiState = BatStates.OpenedEyes;
@@ -169,7 +170,7 @@ public class BatBehaviour : MonoBehaviour
             if(l_Timer <= 0)
             {
                 m_BatAnimator.SetBool("RushA", false);
-                m_BatAnimator.SetBool("HitWall", true);
+
 
                 m_EnnemiState = BatStates.ComeBack;
                 l_Timer = 10f;
