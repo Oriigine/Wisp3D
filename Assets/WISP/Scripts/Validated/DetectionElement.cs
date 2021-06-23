@@ -134,7 +134,7 @@ public class DetectionElement : MonoBehaviour
 
         if (m_FlashDuration <= 0 && Input.GetButtonUp("Fire1") || m_XboxMapping.CInputBool)
         {
-            StartCoroutine(FlashingOut(l_FlashParam));
+            StartCoroutine(FlashingOut(l_FlashParam, l_FlashParamFond));
 
             if(!m_PassiveParticle.isPlaying) m_PassiveParticle.Play();
             Debug.Log("Play Passive");
