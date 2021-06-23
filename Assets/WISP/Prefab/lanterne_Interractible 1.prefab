@@ -491,6 +491,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LightToActivate: {fileID: 8968010754759737713}
+  position: {x: 0, y: 0, z: 0}
+  FireParticle: {fileID: 1786064964531496348, guid: 503a108fe8d64e64cbdf6e33f744bf27, type: 3}
   m_Interact: {fileID: 6860426118706528732}
 --- !u!114 &6860426118706528732
 MonoBehaviour:
