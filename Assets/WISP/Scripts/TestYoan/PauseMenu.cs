@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MainGame");
         Debug.Log("Go to the scene game");
     }
 
