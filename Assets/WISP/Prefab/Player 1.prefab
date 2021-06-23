@@ -3943,7 +3943,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 1
+    enabled: 0
     mode: 0
     ratio: 1
     lifetime:
@@ -4777,7 +4777,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 03b484ed0df72d24393fe9a5494057d5, type: 2}
-  - {fileID: 2100000, guid: a8f3a0dc14210a947b77d4e399db398e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8766,7 +8765,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 1
+    enabled: 0
     mode: 0
     ratio: 1
     lifetime:
@@ -9600,7 +9599,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 03b484ed0df72d24393fe9a5494057d5, type: 2}
-  - {fileID: 2100000, guid: a8f3a0dc14210a947b77d4e399db398e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10243,6 +10241,7 @@ MonoBehaviour:
     m_Bits: 32768
   position: {x: 0, y: 0, z: 0}
   m_FlashLight: {fileID: 2251289092781194388}
+  m_FlashLightFond: {fileID: 0}
   m_PassiveParticle: {fileID: 7916695907669960510}
   m_FlashParticle: {fileID: 571458281488332245}
   m_FlashActivated: 0
