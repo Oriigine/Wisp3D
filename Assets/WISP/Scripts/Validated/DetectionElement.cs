@@ -19,6 +19,14 @@ public class DetectionElement : MonoBehaviour
     [SerializeField]
     private GameObject m_FlashLight;
 
+    [SerializeField]
+    private ParticleSystem m_PassiveParticle;
+
+    [SerializeField]
+    private ParticleSystem m_FlashParticle;
+
+
+
     private Light l_FlashParam;
 
     [SerializeField]
@@ -53,16 +61,33 @@ public class DetectionElement : MonoBehaviour
    private XboxMapping m_XboxMapping;
 
 
+    //bool isPassivePlaying = false;
+
     private void Start()
     {
-        //j'assigne le component light2d de ma light à une variable l_FlashParam
+        //j'assigne le component light2d de ma light à une variable l_FlashParamù
 
+        //m_PassiveParticle.emission.enabled(true);
+        if (m_FlashParticle.isPlaying) m_FlashParticle.Stop();
+        if(!m_PassiveParticle.isPlaying) m_PassiveParticle.Play();
         l_FlashParam = m_FlashLight.GetComponent<Light>();
     }
 
+    //void togglePlay()
+    //{
+    //   // isPassivePlaying = !isPassivePlaying;
+    //    if (!m_PassiveParticle.isPlaying) m_PassiveParticle.Play();
+    //    else m_PassiveParticle.Stop();
+    //    // m_PassiveParticle.Play(isPassivePlaying);
+    //}
     void Update()
     {
-
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    togglePlay();
+        //    Debug.Log("play function called");
+        //}
+        
         
         // lorsque j'appuie sur click gauche et que m_Counter est nul
         if (Input.GetButtonDown("Fire1") || m_XboxMapping.InputBool && m_Counter <= 0)
@@ -80,6 +105,10 @@ public class DetectionElement : MonoBehaviour
                 StartCoroutine(FlashingIn(l_FlashParam));
                 m_FlashDuration += 0.2f;
 
+                if(!m_FlashParticle.isPlaying) m_FlashParticle.Play();
+                Debug.Log("Play Flash");
+                if (m_PassiveParticle.isPlaying) m_PassiveParticle.Stop();
+                Debug.Log("Stop Passive");
             }
 
         }
@@ -102,6 +131,11 @@ public class DetectionElement : MonoBehaviour
         if (m_FlashDuration <= 0 && Input.GetButtonUp("Fire1") || m_XboxMapping.CInputBool)
         {
             StartCoroutine(FlashingOut(l_FlashParam));
+
+            if(!m_PassiveParticle.isPlaying) m_PassiveParticle.Play();
+            Debug.Log("Play Passive");
+            if(m_FlashParticle.isPlaying) m_FlashParticle.Stop();
+            Debug.Log("Stop Flash");
         }
 
         // si le flash est déjà activé
