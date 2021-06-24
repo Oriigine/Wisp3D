@@ -41,8 +41,8 @@ public class BatBehaviour : MonoBehaviour
     [SerializeField]
     private Collider[] m_InteractibleDetecte;   
     
-    [SerializeField]
-    private Animator m_BatAnimator;
+    //[SerializeField]
+    //private Animator m_BatAnimator;
 
 
     [SerializeField]
@@ -65,7 +65,7 @@ public class BatBehaviour : MonoBehaviour
 
         if (m_EnnemiState == BatStates.Sleepy && Vector3.Distance(transform.position, m_Player.position) < m_PlayerDetectionRange)
         {
-            m_BatAnimator.SetTrigger("Awake");
+            //m_BatAnimator.SetTrigger("Awake");
 
 
             m_EnnemiState = BatStates.OpenedEyes;
@@ -77,7 +77,7 @@ public class BatBehaviour : MonoBehaviour
         if (m_EnnemiState == BatStates.OpenedEyes && m_Detect.BatIsDetected == true)
 
         {
-            m_BatAnimator.SetTrigger("RushA");
+            //m_BatAnimator.SetTrigger("RushA");
 
 
 
@@ -103,7 +103,7 @@ public class BatBehaviour : MonoBehaviour
         if (transform.position == m_TargetPosition && m_EnnemiState == BatStates.Rush)
         {
 
-            m_BatAnimator.SetTrigger("HitTarget");
+            //m_BatAnimator.SetTrigger("HitTarget");
 
 
             m_EnnemiState = BatStates.ComeBack;
@@ -123,7 +123,7 @@ public class BatBehaviour : MonoBehaviour
 
         if (transform.position == m_StaticPosition && m_EnnemiState == BatStates.ComeBack)
         {
-            m_BatAnimator.SetTrigger("Return");
+            //m_BatAnimator.SetTrigger("Return");
            
 
 
@@ -169,7 +169,7 @@ public class BatBehaviour : MonoBehaviour
             }
             if(l_Timer <= 0)
             {
-                m_BatAnimator.SetBool("RushA", false);
+                //m_BatAnimator.SetBool("RushA", false);
 
 
                 m_EnnemiState = BatStates.ComeBack;
