@@ -10,6 +10,8 @@ public class ActiveLightTrigger : MonoBehaviour
 
     public Vector3 position;
 
+    public ParticleSystem LanternTriggerParticle;
+
     [SerializeField]
     private Interractible m_Interact;
 
@@ -30,13 +32,17 @@ public class ActiveLightTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider l_Trigger)
     {
         //Si l'objet n'a pas �t� activ�
-        if(m_Interact.IsActive == false && m_Interact != null)
+        if (m_Interact.IsActive == false && m_Interact != null)
         {
             //On l'active
             m_Interact.IsActive = true;
             //On active la light qu'on veut activer
             m_LightToActivate.SetActive(true);
             SoundManager.PlaySound3d(SoundManager.SoundEnum.LanternTrigger, position);
+            Instantiate(LanternTriggerParticle);
+            LanternTriggerParticle.Play();
+
+
         }
     }
     //private void Update()

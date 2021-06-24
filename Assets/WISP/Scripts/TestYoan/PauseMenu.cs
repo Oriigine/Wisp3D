@@ -17,7 +17,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) || m_XboxMapping.menuButton)
+        if (Input.GetKeyDown(KeyCode.Escape) || m_XboxMapping.menuButton)
         {
             Pause();
         }
@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MainGame");
         Debug.Log("Go to the scene game");
     }
 

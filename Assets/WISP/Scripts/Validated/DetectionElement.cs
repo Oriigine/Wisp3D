@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DetectionElement : MonoBehaviour
 {
-    // Enorme zone qui renvoie tout les éléments interractibles à proximité
+    // Enorme zone qui renvoie tout les ï¿½lï¿½ments interractibles ï¿½ proximitï¿½
     public float m_DetectionRange = 30;
     // Zone d'activation
     public float m_ActivationRange = 10;
@@ -18,8 +18,19 @@ public class DetectionElement : MonoBehaviour
     //Variables concernant les lights
     [SerializeField]
     private GameObject m_FlashLight;
+    [SerializeField]
+    private GameObject m_FlashLightFond;
+
+    [SerializeField]
+    private ParticleSystem m_PassiveParticle;
+
+    [SerializeField]
+    private ParticleSystem m_FlashParticle;
+
+
 
     private Light l_FlashParam;
+    private Light l_FlashParamFond;
 
     [SerializeField]
     private bool m_FlashActivated = false;
@@ -53,22 +64,40 @@ public class DetectionElement : MonoBehaviour
    private XboxMapping m_XboxMapping;
 
 
+    //bool isPassivePlaying = false;
+
     private void Start()
     {
-        //j'assigne le component light2d de ma light à une variable l_FlashParam
+        //j'assigne le component light2d de ma light ï¿½ une variable l_FlashParamï¿½
 
+        //m_PassiveParticle.emission.enabled(true);
+        if (m_FlashParticle.isPlaying) m_FlashParticle.Stop();
+        if(!m_PassiveParticle.isPlaying) m_PassiveParticle.Play();
         l_FlashParam = m_FlashLight.GetComponent<Light>();
+        l_FlashParamFond = m_FlashLightFond.GetComponent<Light>();
     }
 
+    //void togglePlay()
+    //{
+    //   // isPassivePlaying = !isPassivePlaying;
+    //    if (!m_PassiveParticle.isPlaying) m_PassiveParticle.Play();
+    //    else m_PassiveParticle.Stop();
+    //    // m_PassiveParticle.Play(isPassivePlaying);
+    //}
     void Update()
     {
-
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    togglePlay();
+        //    Debug.Log("play function called");
+        //}
+        
         
         // lorsque j'appuie sur click gauche et que m_Counter est nul
         if (Input.GetButtonDown("Fire1") || m_XboxMapping.InputBool && m_Counter <= 0)
         {
             m_Time = 0;
-            // si le flash n'est pas déjà activé
+            // si le flash n'est pas dï¿½jï¿½ activï¿½
             if (m_FlashActivated == false)
             {
                 //if(m_Counter <= 0.1)
@@ -76,24 +105,28 @@ public class DetectionElement : MonoBehaviour
                 //    SoundManager.PlaySound(SoundManager.SoundEnum.PlayerFlash);
                 //}
                 Debug.Log("StartCor");
-                // je démarre la coroutine FlahingIn qui aggrandit la range de la light (le flash s'active)
-                StartCoroutine(FlashingIn(l_FlashParam));
+                // je dï¿½marre la coroutine FlahingIn qui aggrandit la range de la light (le flash s'active)
+                StartCoroutine(FlashingIn(l_FlashParam, l_FlashParamFond));
                 m_FlashDuration += 0.2f;
 
+                if(!m_FlashParticle.isPlaying) m_FlashParticle.Play();
+                Debug.Log("Play Flash");
+                if (m_PassiveParticle.isPlaying) m_PassiveParticle.Stop();
+                Debug.Log("Stop Passive");
             }
 
         }
 
-        // Si m_Counter à une valeur supérieure ou égale à la durée d'éclairage du flash 
+        // Si m_Counter ï¿½ une valeur supï¿½rieure ou ï¿½gale ï¿½ la durï¿½e d'ï¿½clairage du flash 
         if (m_Counter >= m_TimeToFlashOn)
         {
 
             m_Time = 0;
 
-            // si le flash est déjà activé
+            // si le flash est dï¿½jï¿½ activï¿½
             if (m_FlashActivated == true)
             {
-                // on démarre la coroutine qui va éteindre le flash
+                // on dï¿½marre la coroutine qui va ï¿½teindre le flash
 
                 m_FlashDuration -= Time.deltaTime;
             }
@@ -101,10 +134,15 @@ public class DetectionElement : MonoBehaviour
 
         if (m_FlashDuration <= 0 && Input.GetButtonUp("Fire1") || m_XboxMapping.CInputBool)
         {
-            StartCoroutine(FlashingOut(l_FlashParam));
+            StartCoroutine(FlashingOut(l_FlashParam, l_FlashParamFond));
+
+            if(!m_PassiveParticle.isPlaying) m_PassiveParticle.Play();
+            Debug.Log("Play Passive");
+            if(m_FlashParticle.isPlaying) m_FlashParticle.Stop();
+            Debug.Log("Stop Flash");
         }
 
-        // si le flash est déjà activé
+        // si le flash est dï¿½jï¿½ activï¿½
         if (m_FlashActivated)
         {
             StartCoroutine("Detection");
@@ -127,7 +165,7 @@ public class DetectionElement : MonoBehaviour
 
                 if (Vector2.Distance(Bat.transform.position, transform.position) > m_ActivationRange || m_FlashActivated == false)
                 {
-                    // L'élément n'est pas/plus détécté
+                    // L'ï¿½lï¿½ment n'est pas/plus dï¿½tï¿½ctï¿½
                     Bat.GetComponent<DetectionBehaviour>().BatIsDetected = false;
                 }
             }
@@ -152,7 +190,7 @@ public class DetectionElement : MonoBehaviour
                 if (l_TestCollision.collider == Bat && Vector2.Distance(Bat.transform.position, transform.position) < m_ActivationRange)
                 {
                     Debug.Log("BatDetect");
-                    // L'élément est détécté
+                    // L'ï¿½lï¿½ment est dï¿½tï¿½ctï¿½
                     Bat.GetComponent<DetectionBehaviour>().BatIsDetected = true;
                 }
                 // sinon
@@ -160,7 +198,7 @@ public class DetectionElement : MonoBehaviour
                 {
                     Debug.Log("BatDetectno");
 
-                    // L'élément n'est pas/plus détécté
+                    // L'ï¿½lï¿½ment n'est pas/plus dï¿½tï¿½ctï¿½
                     Bat.GetComponent<DetectionBehaviour>().BatIsDetected = false;
                 }
             }
@@ -171,32 +209,32 @@ public class DetectionElement : MonoBehaviour
 
     IEnumerator Detection()
     {
-        // Retourne tout les GPE présent dans la zone de détection
+        // Retourne tout les GPE prï¿½sent dans la zone de dï¿½tection
         m_InteractibleDetecte = Physics.OverlapSphere(transform.position, m_DetectionRange, m_LayerToDetect);
 
-        // On vérifie si le tableau n'est pas vide
+        // On vï¿½rifie si le tableau n'est pas vide
         if (m_InteractibleDetecte.Length > 0)
         {
             Debug.Log("y a tablo");
-            // Pour chaque élément (collider2D) dans ce tableau
+            // Pour chaque ï¿½lï¿½ment (collider2D) dans ce tableau
             foreach (Collider item in m_InteractibleDetecte)
             {
                 // On envoie un linecast dans sa direction
                 RaycastHit l_TestCollision;
                 Physics.Linecast(transform.position, item.transform.position, out l_TestCollision, m_Ground);
 
-                // Si l'objet touché par le linecast est le même que celui détecté à l'origine,
-                // ça veut dire que la vision n'est pas occulté par un élément
-                // Et si la distance de l'élément détecté est inférieur à la distance d'activation
+                // Si l'objet touchï¿½ par le linecast est le mï¿½me que celui dï¿½tectï¿½ ï¿½ l'origine,
+                // ï¿½a veut dire que la vision n'est pas occultï¿½ par un ï¿½lï¿½ment
+                // Et si la distance de l'ï¿½lï¿½ment dï¿½tectï¿½ est infï¿½rieur ï¿½ la distance d'activation
                 if (l_TestCollision.collider == item && Vector2.Distance(item.transform.position, transform.position) < m_ActivationRange)
                 {
-                    // L'élément est détécté
+                    // L'ï¿½lï¿½ment est dï¿½tï¿½ctï¿½
                     item.GetComponent<DetectionBehaviour>().IsDetected = true;
                 }
                 // sinon
                 else
                 {
-                    // L'élément n'est pas/plus détécté
+                    // L'ï¿½lï¿½ment n'est pas/plus dï¿½tï¿½ctï¿½
                     item.GetComponent<DetectionBehaviour>().IsDetected = false;
                 }
             }
@@ -204,29 +242,30 @@ public class DetectionElement : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator FlashingIn(Light lightToFade)
+    IEnumerator FlashingIn(Light lightToFade, Light lightToFadeFond)
     {
-        // le flash n'est pas activé
+        // le flash n'est pas activï¿½
         if (m_FlashActivated == false)
         {
-            // Tant que m_Counter n'a pas dépassé la durée d'activation du flash
+            // Tant que m_Counter n'a pas dï¿½passï¿½ la durï¿½e d'activation du flash
             while (m_Counter < m_TimeToFlashOn)
             {
-                // si m_Time est inférieur à 1 on l'incrémente avec une certaine valeur 
+                // si m_Time est infï¿½rieur ï¿½ 1 on l'incrï¿½mente avec une certaine valeur 
                 if (m_Time < 1)
                 {
                     m_Time += 12 * Time.deltaTime;
                 }
 
-                // on incrémente m_Counter 2x plus vite que m-Time pour qu'ils arrivent au même moment à leur valeur max
+                // on incrï¿½mente m_Counter 2x plus vite que m-Time pour qu'ils arrivent au mï¿½me moment ï¿½ leur valeur max
                 m_Counter += 24 * Time.deltaTime;
 
                 // On effectue un lerp entre valeur min et max des inner et outer range de la light
 
                 lightToFade.range = Mathf.Lerp(m_MinRange, m_MaxRange, m_Time);
+                lightToFadeFond.range = Mathf.Lerp(m_MinRange, m_MaxRange, m_Time);
                 Debug.Log("ca flash");
 
-                // le flash est activé
+                // le flash est activï¿½
 
                 yield return m_FlashActivated = true;
 
@@ -234,29 +273,30 @@ public class DetectionElement : MonoBehaviour
         }
     }
 
-    IEnumerator FlashingOut(Light lightToFade)
+    IEnumerator FlashingOut(Light lightToFade, Light lightToFadeFond)
     {
-        // si le flash n'est pas activé
+        // si le flash n'est pas activï¿½
         if (m_FlashActivated == true)
         {
-            //Tant que m_Counter ne retourne pas àsa valeur d'origine (0)
+            //Tant que m_Counter ne retourne pas ï¿½sa valeur d'origine (0)
             while (m_Counter > m_TimeToFlashOff)
             {
-                // si m_Time est inférieur à 1 on l'incrémente avec une certaine valeur 
+                // si m_Time est infï¿½rieur ï¿½ 1 on l'incrï¿½mente avec une certaine valeur 
                 if (m_Time < 1)
                 {
                     m_Time += 0.5f * Time.deltaTime;
                 }
 
-                // on décrémente m_Counter 2x plus vite que m-Time pour qu'ils arrivent au même moment à leur valeur max
+                // on dï¿½crï¿½mente m_Counter 2x plus vite que m-Time pour qu'ils arrivent au mï¿½me moment ï¿½ leur valeur max
                 m_Counter -= Time.deltaTime;
 
                 // On effectue un lerp entre valeur max et min des inner et outer range de la light
 
                 lightToFade.range = Mathf.Lerp(m_MaxRange, m_MinRange, m_Time);
+                lightToFadeFond.range = Mathf.Lerp(m_MaxRange, m_MinRange, m_Time);
                 Debug.Log("ca d flash");
 
-                // Le flash est désactivé
+                // Le flash est dï¿½sactivï¿½
                 yield return m_FlashActivated = false;
             }
 
