@@ -18,6 +18,8 @@ public class ActiveLight : MonoBehaviour
     [SerializeField]
     private bool IsAlreadyActive = false;
 
+    public ParticleSystem LightDetectorParticle;
+
 
     private void Start()
     {
@@ -38,6 +40,8 @@ public class ActiveLight : MonoBehaviour
             m_Light.SetActive(true);
             IsAlreadyActive = true;
             m_Interractible.IsActive = true;
+            Instantiate(LightDetectorParticle);
+            LightDetectorParticle.Play();
 
 
         }
