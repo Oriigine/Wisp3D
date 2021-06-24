@@ -33,15 +33,16 @@ public class ActiveLight : MonoBehaviour
         //Et on passe son booléen de son "m_Interractible" à true
         if (m_Detect.IsDetected)
         {
-            //if (IsAlreadyActive != true)
-            //{
-            //    SoundManager.PlaySound3d(SoundManager.SoundEnum.LightDetector, position);
-            //}
+            if (IsAlreadyActive != true)
+            {
+                SoundManager.PlaySound3d(SoundManager.SoundEnum.LightDetector, position);
+                LightDetectorParticle.Play();
+            }
             m_Light.SetActive(true);
             IsAlreadyActive = true;
             m_Interractible.IsActive = true;
-            Instantiate(LightDetectorParticle);
-            LightDetectorParticle.Play();
+         
+
 
 
         }
